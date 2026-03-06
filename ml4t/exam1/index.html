@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML4T Exam 1 Practice</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f1f5f9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 2rem;
+    width: 100%;
+    max-width: 680px;
+  }
+  h1 { font-size: 1.6rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.2rem; font-weight: 600; color: #1e293b; margin-bottom: 1rem; }
+  .subtitle { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
+  label { display: block; font-size: 0.9rem; color: #475569; margin-bottom: 0.4rem; }
+  select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #1e293b;
+    background: #f8fafc;
+    margin-bottom: 1.25rem;
+    appearance: none;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, opacity 0.15s;
+  }
+  .btn-primary { background: #3b82f6; color: #fff; }
+  .btn-primary:hover { background: #2563eb; }
+  .btn-secondary { background: #e2e8f0; color: #334155; }
+  .btn-secondary:hover { background: #cbd5e1; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Quiz header */
+  .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .progress-label { font-size: 0.85rem; color: #64748b; }
+  .score-chip {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-radius: 999px;
+    padding: 0.25rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .progress-bar-track {
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 999px;
+    transition: width 0.3s;
+  }
+
+  /* Scenario */
+  .scenario {
+    background: #f8fafc;
+    border-left: 3px solid #3b82f6;
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    color: #334155;
+    line-height: 1.55;
+  }
+  .chapter-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #3b82f6;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Checkboxes */
+  .options-list { list-style: none; margin-bottom: 1rem; }
+  .options-list li { margin-bottom: 0.5rem; }
+  .option-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    font-size: 0.93rem;
+    color: #334155;
+    line-height: 1.45;
+  }
+  .option-label:hover { border-color: #93c5fd; background: #f0f9ff; }
+  .option-label input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    margin-top: 2px;
+    accent-color: #3b82f6;
+    cursor: pointer;
+  }
+  .option-label.correct {
+    border-color: #22c55e;
+    background: #f0fdf4;
+    color: #166534;
+  }
+  .option-label.wrong {
+    border-color: #ef4444;
+    background: #fef2f2;
+    color: #991b1b;
+  }
+  .option-label.missed {
+    border-color: #f97316;
+    background: #fff7ed;
+    color: #9a3412;
+  }
+  .feedback-icon {
+    flex-shrink: 0;
+    font-size: 1rem;
+    margin-top: 2px;
+  }
+
+  /* Warning */
+  .warning {
+    background: #fffbeb;
+    border: 1px solid #fbbf24;
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.88rem;
+    color: #92400e;
+    margin-bottom: 0.9rem;
+    display: none;
+  }
+  .warning.visible { display: block; }
+
+  /* Points earned */
+  .points-earned {
+    font-size: 0.88rem;
+    color: #475569;
+    margin-bottom: 1rem;
+  }
+  .points-earned strong { color: #1e293b; }
+
+  /* Button row */
+  .btn-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  /* Results */
+  .results-score {
+    text-align: center;
+    margin: 1.5rem 0 1rem;
+  }
+  .score-big {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1;
+  }
+  .score-pct {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+  }
+  .results-breakdown {
+    border-top: 1px solid #e2e8f0;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+  }
+  .results-breakdown h3 { font-size: 0.95rem; color: #475569; margin-bottom: 0.6rem; }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    color: #334155;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .result-row .pts { font-weight: 600; }
+  .result-row .pts.full { color: #16a34a; }
+  .result-row .pts.partial { color: #ca8a04; }
+  .result-row .pts.zero { color: #dc2626; }
+
+  /* Hidden */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="card" id="app"></div>
+
+<script>
+// ─── Question Bank ────────────────────────────────────────────────────────────
+const WEEKS = {
+  "Week 3 — Ch. 1, 2.2, 3.1, 3.3": [
+    {
+      chapter: "Ch. 1 — Introduction to Statistical Learning",
+      scenario: "Consider the definitions and distinctions between supervised and unsupervised learning as covered in Chapter 1.",
+      statements: [
+        { label: "A", text: "Supervised learning requires labeled training data with known output values.", answer: true },
+        { label: "B", text: "Unsupervised learning can be used to discover hidden groupings or structure in data without predefined labels.", answer: true },
+        { label: "C", text: "Regression and classification are both types of unsupervised learning.", answer: false },
+        { label: "D", text: "Predicting whether a patient has a disease based on clinical measurements is a supervised learning problem.", answer: true },
+        { label: "E", text: "Unsupervised learning is generally considered easier to evaluate than supervised learning because there is always a clear ground truth.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Introduction to Statistical Learning",
+      scenario: "A data scientist is deciding whether a given prediction task is a regression or classification problem. Consider the statements below.",
+      statements: [
+        { label: "A", text: "Predicting next year's salary given age and education is a regression problem.", answer: true },
+        { label: "B", text: "Whether the S&P 500 will increase or decrease on a given day is a classification problem.", answer: true },
+        { label: "C", text: "In classification, the output variable is quantitative.", answer: false },
+        { label: "D", text: "The same input features can be used in both regression and classification problems.", answer: true },
+        { label: "E", text: "Regression problems always produce a binary output.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Introduction to Statistical Learning",
+      scenario: "Reflect on the history and broad nature of statistical learning methods as described in Chapter 1.",
+      statements: [
+        { label: "A", text: "Least squares linear regression was among the earliest statistical learning methods developed.", answer: true },
+        { label: "B", text: "Logistic regression is used for predicting qualitative responses.", answer: true },
+        { label: "C", text: "Deep neural networks were the first widely-used machine learning approach developed in the 19th century.", answer: false },
+        { label: "D", text: "Support vector machines and classification trees are examples of modern statistical learning methods.", answer: true },
+        { label: "E", text: "Statistical learning methods are limited to use in statistics and have no practical applications in finance or medicine.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 2.2 — Assessing Model Accuracy",
+      scenario: "A researcher fits several models of increasing flexibility to a dataset. Consider how training and test MSE behave.",
+      statements: [
+        { label: "A", text: "The goal of a statistical learning method is typically to minimize test MSE, not training MSE.", answer: true },
+        { label: "B", text: "A model that perfectly fits the training data will always also have a low test MSE.", answer: false },
+        { label: "C", text: "Test MSE measures model performance on observations not used during training.", answer: true },
+        { label: "D", text: "As model flexibility increases, training MSE monotonically decreases.", answer: true },
+        { label: "E", text: "Test MSE also monotonically decreases as model flexibility increases.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 2.2 — Assessing Model Accuracy",
+      scenario: "The bias-variance trade-off is central to understanding model generalization. Evaluate each statement.",
+      statements: [
+        { label: "A", text: "Expected test MSE can be decomposed into variance, squared bias, and irreducible error.", answer: true },
+        { label: "B", text: "More flexible models tend to have lower bias and higher variance.", answer: true },
+        { label: "C", text: "Irreducible error can be eliminated by choosing a sufficiently complex model.", answer: false },
+        { label: "D", text: "A model that is too simple suffers from high bias, leading to underfitting.", answer: true },
+        { label: "E", text: "The variance component of test MSE decreases as model flexibility increases.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 2.2 — Assessing Model Accuracy",
+      scenario: "The Bayes classifier and K-Nearest Neighbors (KNN) are fundamental classifiers. Assess the following claims.",
+      statements: [
+        { label: "A", text: "The Bayes classifier assigns each observation to the class with the highest conditional probability given the predictor values.", answer: true },
+        { label: "B", text: "The Bayes error rate represents the lowest achievable test error rate for a given problem.", answer: true },
+        { label: "C", text: "KNN with K=1 produces low variance and high bias.", answer: false },
+        { label: "D", text: "In KNN classification, a larger value of K leads to a smoother, less flexible decision boundary.", answer: true },
+        { label: "E", text: "The Bayes classifier is practical and widely used because its conditional probabilities are easily computed from real data.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 2.2 — Assessing Model Accuracy",
+      scenario: "An analyst is evaluating classifier performance and selecting between models with different levels of complexity. Consider these statements.",
+      statements: [
+        { label: "A", text: "The training error rate is the proportion of training observations that are misclassified.", answer: true },
+        { label: "B", text: "A model with a low training error rate is guaranteed to have a low test error rate.", answer: false },
+        { label: "C", text: "The bias-variance trade-off applies to classification settings as well as regression settings.", answer: true },
+        { label: "D", text: "KNN with a very small K will tend to overfit the training data.", answer: true },
+        { label: "E", text: "In the classification setting, test error is not a useful metric for model evaluation.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.1 — Simple Linear Regression",
+      scenario: "A data scientist is fitting a simple linear regression model to predict advertising sales from TV budget. Consider these statements about the model setup.",
+      statements: [
+        { label: "A", text: "Simple linear regression models the relationship between one predictor and one quantitative response.", answer: true },
+        { label: "B", text: "The coefficients β₀ and β₁ represent the intercept and slope of the regression line.", answer: true },
+        { label: "C", text: "Simple linear regression assumes an exact linear relationship (no error term).", answer: false },
+        { label: "D", text: "The estimated regression line is used to predict the response for new values of the predictor.", answer: true },
+        { label: "E", text: "Simple linear regression can only be used when the predictor is categorical.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.1 — Simple Linear Regression",
+      scenario: "The least squares criterion is used to estimate the regression coefficients. Evaluate the following statements.",
+      statements: [
+        { label: "A", text: "The least squares method estimates β₀ and β₁ by minimizing the Residual Sum of Squares (RSS).", answer: true },
+        { label: "B", text: "RSS is computed as the sum of squared differences between observed and predicted response values.", answer: true },
+        { label: "C", text: "The least squares line always passes through the origin (0, 0).", answer: false },
+        { label: "D", text: "The estimated slope β̂₁ depends on the sample covariance between X and Y and the variance of X.", answer: true },
+        { label: "E", text: "Minimizing the RSS is equivalent to maximizing the residuals.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.1 — Simple Linear Regression",
+      scenario: "After fitting a regression line, the analyst wants to assess whether TV budget is truly associated with sales. Consider these statements about inference.",
+      statements: [
+        { label: "A", text: "The standard error of an estimator reflects how much the estimate varies across different samples.", answer: true },
+        { label: "B", text: "A 95% confidence interval for β₁ provides a range of values that is likely to contain the true slope.", answer: true },
+        { label: "C", text: "A very small p-value for β₁ provides evidence that there is no relationship between X and Y.", answer: false },
+        { label: "D", text: "The t-statistic for β₁ measures how many standard deviations the estimate is from zero.", answer: true },
+        { label: "E", text: "If the 95% confidence interval for β₁ includes zero, we would typically conclude there is a strong linear relationship.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.1 — Simple Linear Regression",
+      scenario: "The analyst evaluates model fit using R² and Residual Standard Error (RSE). Assess the following statements.",
+      statements: [
+        { label: "A", text: "R² measures the proportion of variance in Y that is explained by X.", answer: true },
+        { label: "B", text: "An R² value close to 1 indicates that the model explains most of the variability in the response.", answer: true },
+        { label: "C", text: "The Residual Standard Error (RSE) measures the average amount the response deviates from the regression line.", answer: true },
+        { label: "D", text: "R² will always be high when RSE is low, regardless of the scale of Y.", answer: false },
+        { label: "E", text: "In simple linear regression, R² equals the square of the Pearson correlation coefficient between X and Y.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 3.3 — Other Considerations in Regression",
+      scenario: "A regression model includes a qualitative predictor — region with three levels: East, West, and South. Consider the correct handling of such predictors.",
+      statements: [
+        { label: "A", text: "A qualitative predictor with two levels can be incorporated into regression using a single dummy variable coded 0 or 1.", answer: true },
+        { label: "B", text: "The choice of which level to assign 0 or 1 to a dummy variable changes the model's predictions.", answer: false },
+        { label: "C", text: "For a qualitative predictor with 3 levels, we need 2 dummy variables in the regression model.", answer: true },
+        { label: "D", text: "The level that is represented by all dummy variables equal to zero is called the baseline category.", answer: true },
+        { label: "E", text: "Including qualitative predictors in a regression model is only valid when those predictors are ordered/ordinal.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.3 — Other Considerations in Regression",
+      scenario: "A model is extended to include interaction terms between TV and Radio ad spend. The analyst also considers polynomial regression.",
+      statements: [
+        { label: "A", text: "An interaction term between two predictors allows the effect of one predictor to change depending on the value of the other.", answer: true },
+        { label: "B", text: "Polynomial regression is a form of linear regression that can model non-linear relationships.", answer: true },
+        { label: "C", text: "Including X² in a regression model makes it a non-linear regression model.", answer: false },
+        { label: "D", text: "A hierarchical principle suggests that when including an interaction term X₁X₂, the main effects X₁ and X₂ should also be included.", answer: true },
+        { label: "E", text: "Interaction terms can only be used between two quantitative predictors.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.3 — Other Considerations in Regression",
+      scenario: "After fitting a multiple regression model, the analyst runs diagnostic checks. Evaluate each diagnostic statement.",
+      statements: [
+        { label: "A", text: "A residual plot showing a pattern (e.g., U-shape) is an indication of non-linearity that the model has not captured.", answer: true },
+        { label: "B", text: "Collinearity refers to a situation where two or more predictors are highly correlated with each other.", answer: true },
+        { label: "C", text: "An outlier is an observation with an unusual predictor value relative to the other observations.", answer: false },
+        { label: "D", text: "High leverage points are observations with unusual predictor values that can have a large influence on the regression line.", answer: true },
+        { label: "E", text: "Correlated error terms are typically a problem in cross-sectional studies but rarely in time series data.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.3 — Other Considerations in Regression",
+      scenario: "The analyst investigates several potential violations of regression assumptions detected in the advertising dataset. Assess each claim.",
+      statements: [
+        { label: "A", text: "If a residual plot shows a funnel shape (variance increasing with fitted values), this suggests non-constant variance (heteroscedasticity).", answer: true },
+        { label: "B", text: "Collinearity can make it difficult to determine which predictors are truly associated with the response.", answer: true },
+        { label: "C", text: "Removing all high-leverage points is always the recommended solution when they are detected.", answer: false },
+        { label: "D", text: "Transformations such as log(X) or √X can help address non-linearity in the predictor-response relationship.", answer: true },
+        { label: "E", text: "A large variance inflation factor (VIF) is evidence of low collinearity among predictors.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 2.2 — Assessing Model Accuracy",
+      scenario: "A data scientist fits a sequence of increasingly flexible models to a training dataset, observing that at some point test performance worsens even as training performance continues to improve. Consider these statements about overfitting and model selection.",
+      statements: [
+        { label: "A", text: "Overfitting occurs when a model fits the training data very well but generalizes poorly to new test data.", answer: true },
+        { label: "B", text: "A model that interpolates every training observation perfectly (training error = 0) will always also achieve zero test error.", answer: false },
+        { label: "C", text: "Degrees of freedom is a quantity used to summarize the flexibility of a statistical learning method.", answer: true },
+        { label: "D", text: "Cross-validation can be used to estimate test MSE when no separate test set is available.", answer: true },
+        { label: "E", text: "The 'no free lunch' principle implies that with the right choice of method, one approach can be found that outperforms all others on every possible data set.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.1 — Simple Linear Regression",
+      scenario: "A statistician explains the difference between the true population regression line and the estimated least squares line, and discusses properties of the estimators. Consider the following statements.",
+      statements: [
+        { label: "A", text: "The population regression line is defined by the true unknown parameters β₀ and β₁, which are generally not observed.", answer: true },
+        { label: "B", text: "The least squares estimates β̂₀ and β̂₁ will exactly equal the true parameters β₀ and β₁ for any given data set.", answer: false },
+        { label: "C", text: "The least squares coefficient estimates are unbiased, meaning they equal the true parameters on average across many different data sets.", answer: true },
+        { label: "D", text: "Different data sets generated from the same true model will tend to produce different least squares lines.", answer: true },
+        { label: "E", text: "The standard error of β̂₁ is larger when the predictor values X are more spread out (have greater variance).", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 3.3 — Other Considerations in Regression",
+      scenario: "During diagnostics on a multiple regression model, a researcher identifies several observations that may be unusual. Evaluate the following statements about detecting and handling outliers and high-leverage points.",
+      statements: [
+        { label: "A", text: "An outlier is an observation for which the response value is far from the value predicted by the model.", answer: true },
+        { label: "B", text: "A high leverage point is an observation with an unusual predictor value relative to the other observations.", answer: true },
+        { label: "C", text: "An outlier that does not have an unusual predictor value will typically have a large influence on the least squares regression line.", answer: false },
+        { label: "D", text: "Studentized residuals greater than 3 in absolute value may indicate the presence of outliers.", answer: true },
+        { label: "E", text: "An observation that is simultaneously an outlier and a high leverage point is less of a concern than an outlier with typical predictor values.", answer: false },
+      ]
+    },
+  ],
+  "Week 4 — Ch. 8.1 & 8.2": [
+    {
+      chapter: "Ch. 8.1 — Decision Trees: Regression Trees",
+      scenario: "A regression tree is fitted to the Hitters dataset to predict a baseball player's salary based on Years and Hits. Consider these statements about the structure and predictions of a regression tree.",
+      statements: [
+        { label: "A", text: "In a regression tree, each internal node represents a split on a predictor variable.", answer: true },
+        { label: "B", text: "The prediction at a terminal node (leaf) is the mean response value of the training observations that fall in that region.", answer: true },
+        { label: "C", text: "The prediction at a terminal node is the median of the response values for the training observations in that region.", answer: false },
+        { label: "D", text: "A regression tree partitions the predictor space into distinct, non-overlapping regions.", answer: true },
+        { label: "E", text: "Regression trees can only be used when all predictors are continuous (quantitative).", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.1 — Decision Trees: Regression Trees",
+      scenario: "A data scientist grows a regression tree using recursive binary splitting. Consider the following statements about this process.",
+      statements: [
+        { label: "A", text: "Recursive binary splitting is a greedy algorithm that selects the best split at each step without considering whether the split leads to a better tree in future steps.", answer: true },
+        { label: "B", text: "At each step, recursive binary splitting chooses the predictor and cutpoint that minimize the RSS of the two resulting regions.", answer: true },
+        { label: "C", text: "Recursive binary splitting evaluates all possible binary partitions of the feature space before choosing a split.", answer: false },
+        { label: "D", text: "Splitting continues until some stopping criterion is reached, such as each region containing fewer than a minimum number of observations.", answer: true },
+        { label: "E", text: "Recursive binary splitting is guaranteed to find the globally optimal tree in terms of test prediction error.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.1 — Decision Trees: Regression Trees",
+      scenario: "After fitting a very deep regression tree that nearly perfectly memorizes the training data, a researcher applies cost complexity pruning. Evaluate these statements.",
+      statements: [
+        { label: "A", text: "A very large, unpruned tree tends to overfit the training data.", answer: true },
+        { label: "B", text: "Cost complexity pruning builds a small tree directly, without first growing a large tree.", answer: false },
+        { label: "C", text: "The tuning parameter α controls the trade-off between a subtree's complexity and its fit to the training data.", answer: true },
+        { label: "D", text: "When α = 0, no pruning occurs and the full unpruned tree T₀ is returned.", answer: true },
+        { label: "E", text: "Cross-validation is used to select the optimal value of α for pruning.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 8.1 — Decision Trees: Classification Trees",
+      scenario: "A team builds a classification tree to predict whether a customer will default on a loan. Consider these statements about classification trees and how they differ from regression trees.",
+      statements: [
+        { label: "A", text: "In a classification tree, the prediction at a terminal node is the most common class (mode) among training observations in that region.", answer: true },
+        { label: "B", text: "Classification trees use Residual Sum of Squares (RSS) as the primary criterion for evaluating split quality.", answer: false },
+        { label: "C", text: "Classification trees can handle qualitative predictors without the need to create dummy variables.", answer: true },
+        { label: "D", text: "Classification trees can be pruned using the same cost complexity pruning approach as regression trees.", answer: true },
+        { label: "E", text: "In a classification tree, terminal node predictions are based on the mean response, just as in regression trees.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.1 — Decision Trees: Classification Trees",
+      scenario: "Two impurity measures — the Gini index and cross-entropy — are used when growing classification trees. Evaluate the following statements about these measures.",
+      statements: [
+        { label: "A", text: "The Gini index measures node purity; a small value indicates that a node contains mostly observations from a single class.", answer: true },
+        { label: "B", text: "Cross-entropy equals zero when a node is completely pure (one class dominates).", answer: true },
+        { label: "C", text: "The Gini index is maximized (takes its largest value) when a node contains observations exclusively from one class.", answer: false },
+        { label: "D", text: "Both the Gini index and cross-entropy are minimized when a node is perfectly pure.", answer: true },
+        { label: "E", text: "RSS is an appropriate impurity measure for evaluating splits in a classification tree.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.1 — Decision Trees: Classification Trees",
+      scenario: "A data science team is debating whether to use decision trees or logistic regression for a binary classification problem. Consider these statements about the properties and limitations of decision trees.",
+      statements: [
+        { label: "A", text: "Decision trees are generally easier to explain and interpret than logistic regression.", answer: true },
+        { label: "B", text: "Decision trees closely mirror human decision-making processes.", answer: true },
+        { label: "C", text: "Decision trees always outperform logistic regression in terms of prediction accuracy.", answer: false },
+        { label: "D", text: "Decision trees are unstable: small changes in training data can result in large changes in the tree structure.", answer: true },
+        { label: "E", text: "Decision trees are stable models that produce consistent structure across different subsets of training data.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.2 — Tree-Based Methods: Bagging",
+      scenario: "A machine learning engineer applies bagging to an unstable decision tree model. Consider the following statements about how bagging works.",
+      statements: [
+        { label: "A", text: "Bagging stands for bootstrap aggregating.", answer: true },
+        { label: "B", text: "Bagging creates multiple bootstrap samples by sampling observations with replacement from the original training set.", answer: true },
+        { label: "C", text: "Each bootstrap sample is the same size as the original training set.", answer: true },
+        { label: "D", text: "For regression, the bagging prediction is the majority vote across all B trees.", answer: false },
+        { label: "E", text: "Bagging is particularly effective for high-variance models like decision trees.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 8.2 — Tree-Based Methods: Bagging",
+      scenario: "A researcher uses bagging and wants to estimate test error without setting aside a separate holdout set. Consider these statements about out-of-bag (OOB) error estimation.",
+      statements: [
+        { label: "A", text: "Roughly one-third of the original training observations are not included in any given bootstrap sample (out-of-bag observations).", answer: true },
+        { label: "B", text: "OOB error is estimated using predictions from trees for which each observation was not part of the bootstrap training sample.", answer: true },
+        { label: "C", text: "OOB error estimation requires setting aside a separate validation set before fitting any trees.", answer: false },
+        { label: "D", text: "For regression, the OOB prediction for each observation is the average of predictions from trees that did not use that observation in training.", answer: true },
+        { label: "E", text: "OOB error cannot be computed until all B trees have been fit.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 8.2 — Tree-Based Methods: Bagging",
+      scenario: "After fitting a bagged ensemble, an analyst wants to understand which predictors contributed most to the predictions. Consider these statements about variable importance measures in bagging.",
+      statements: [
+        { label: "A", text: "For bagged regression trees, variable importance is measured by the total decrease in RSS from splits on that predictor, averaged over all B trees.", answer: true },
+        { label: "B", text: "For bagged classification trees, variable importance is measured by the total decrease in the Gini index from splits on that predictor, averaged over all B trees.", answer: true },
+        { label: "C", text: "Variable importance measures from tree ensembles can only be computed for bagging, not for random forests.", answer: false },
+        { label: "D", text: "A predictor with a high variable importance score contributed substantially to improving node purity across the ensemble of trees.", answer: true },
+        { label: "E", text: "Variable importance measures from tree ensembles establish the causal effect of each predictor on the response.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.2 — Tree-Based Methods: Random Forests",
+      scenario: "A data scientist switches from bagging to random forests to improve predictive performance. Consider the following statements about random forests.",
+      statements: [
+        { label: "A", text: "Random forests improve over bagging by randomly selecting a subset of m predictors as split candidates at each node, rather than considering all p predictors.", answer: true },
+        { label: "B", text: "For a classification problem with p predictors, a typical choice for m is √p.", answer: true },
+        { label: "C", text: "For a regression problem with p predictors, a typical choice for m is p/3.", answer: true },
+        { label: "D", text: "Setting m = p in a random forest is equivalent to bagging.", answer: true },
+        { label: "E", text: "Random forests always use all p predictors as split candidates at every node, just like bagging.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.2 — Tree-Based Methods: Random Forests",
+      scenario: "An analyst is explaining to a colleague why random forests tend to achieve lower test error than plain bagging. Evaluate the following statements.",
+      statements: [
+        { label: "A", text: "In bagging, if a few very strong predictors exist, most trees will use them in their top splits, resulting in positively correlated trees.", answer: true },
+        { label: "B", text: "Averaging positively correlated trees reduces variance less than averaging uncorrelated trees.", answer: true },
+        { label: "C", text: "Random forests decorrelate trees by randomly selecting a subset of m predictors at each split.", answer: true },
+        { label: "D", text: "Random forests reduce variance without any increase in bias whatsoever.", answer: false },
+        { label: "E", text: "Bagging and random forests produce identical predictions when m = √p.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.2 — Tree-Based Methods: Boosting",
+      scenario: "A team implements boosting as an alternative ensemble method. Consider these statements about how boosting works.",
+      statements: [
+        { label: "A", text: "In boosting, each successive tree is fit in a way that gives extra weight to observations that were poorly predicted by previous trees.", answer: true },
+        { label: "B", text: "Boosting fits trees in parallel, similar to bagging.", answer: false },
+        { label: "C", text: "Boosting can be applied to both regression and classification problems.", answer: true },
+        { label: "D", text: "At the start of boosting, all training observations are given equal weight.", answer: true },
+        { label: "E", text: "In boosting, observations that are incorrectly classified receive decreased weight in subsequent iterations.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.2 — Tree-Based Methods: Boosting",
+      scenario: "A data scientist is tuning a boosting model and evaluating potential failure modes. Consider these statements about boosting's tuning parameters and weaknesses.",
+      statements: [
+        { label: "A", text: "If the number of trees B is too large, boosting may overfit the training data.", answer: true },
+        { label: "B", text: "Unlike single decision trees, boosting is immune to overfitting regardless of how many trees are used.", answer: false },
+        { label: "C", text: "Each individual tree in a boosting ensemble is typically a weak learner — a model that performs only slightly better than random guessing.", answer: true },
+        { label: "D", text: "Boosting is sensitive to outliers because observations with large prediction errors receive higher weight in subsequent iterations.", answer: true },
+        { label: "E", text: "Boosting reduces variance but is incapable of reducing bias.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 8.2 — Tree-Based Methods: Comparing Methods",
+      scenario: "A data science team compares bagging, random forests, and boosting across several dimensions. Evaluate these comparative statements.",
+      statements: [
+        { label: "A", text: "Bagging fits trees in parallel by resampling observations, while boosting fits trees sequentially by reweighting observations.", answer: true },
+        { label: "B", text: "Random forests differ from bagging by randomly selecting a subset of m predictors at each split, rather than at each tree.", answer: true },
+        { label: "C", text: "Boosting requires the same computational effort as bagging because both use bootstrap sampling.", answer: false },
+        { label: "D", text: "Bagging reduces variance by averaging over many trees, but generally cannot reduce bias the way boosting can.", answer: true },
+        { label: "E", text: "Both bagging and random forests are ensemble methods that combine predictions from multiple independently trained trees.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 8.1 & 8.2 — Tree-Based Methods: Synthesis",
+      scenario: "A researcher is reviewing the strengths and limitations of tree-based methods in preparation for choosing a modeling approach. Consider the following statements.",
+      statements: [
+        { label: "A", text: "A major limitation of single decision trees is high variance — they tend to overfit and are sensitive to small changes in training data.", answer: true },
+        { label: "B", text: "Tree-based ensemble methods like random forests and boosting tend to have higher variance than a single deep decision tree.", answer: false },
+        { label: "C", text: "Trees can naturally capture nonlinear relationships between predictors and the response without requiring explicit feature transformations.", answer: true },
+        { label: "D", text: "Trees can handle both continuous and categorical predictors without preprocessing steps like dummy variable creation.", answer: true },
+        { label: "E", text: "Ensemble methods like bagging and random forests always produce worse predictions than a single well-tuned decision tree.", answer: false },
+      ]
+    },
+  ],
+  "Week 5 — Ch. 1 (Deep Learning)": [
+    {
+      chapter: "Ch. 1 — Deep Learning: Medical Diagnosis & Transfer Learning",
+      scenario: "A deep learning system is trained to classify skin lesion images as malignant melanoma or benign nevi. The training set contains approximately 129,000 labeled images. The network has roughly 25 million adjustable parameters (weights) and was first pre-trained on 1.28 million everyday object images before being fine-tuned on lesion data.",
+      statements: [
+        { label: "A", text: "This application is an example of supervised learning because each training image carries a known label (malignant or benign) derived from biopsy.", answer: true },
+        { label: "B", text: "This is a classification problem because the output must be assigned to one of a discrete set of classes.", answer: true },
+        { label: "C", text: "Labels in the training set were assigned by the neural network itself during training, eliminating the need for biopsy.", answer: false },
+        { label: "D", text: "Pre-training on everyday object images and then fine-tuning on lesion images is an example of transfer learning.", answer: true },
+        { label: "E", text: "The trained deep learning classifier performed below the accuracy level of professional dermatologists.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Learning Paradigms",
+      scenario: "Chapter 1 introduces four deep learning applications — skin cancer diagnosis, protein structure prediction, face image synthesis, and large language models — to illustrate the breadth of deep learning and key distinctions between learning paradigms.",
+      statements: [
+        { label: "A", text: "Both skin cancer diagnosis and protein structure prediction are examples of supervised learning because each training example has a known target output.", answer: true },
+        { label: "B", text: "Face image synthesis trained on unlabeled images is an example of unsupervised learning.", answer: true },
+        { label: "C", text: "Protein structure prediction is a classification problem because the 3D structure is assigned to one of a discrete set of shape categories.", answer: false },
+        { label: "D", text: "Large language models trained to predict the next word use self-supervised learning, where labelled outputs are derived automatically from the input text data.", answer: true },
+        { label: "E", text: "Generative AI models produce outputs that exactly replicate examples from the training set rather than generating novel samples.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Large Language Models",
+      scenario: "An autoregressive large language model (LLM) takes a sequence of words as input and generates a single word as output. This process repeats — appending each new word to the sequence — to produce extended text.",
+      statements: [
+        { label: "A", text: "Autoregressive language models are a form of generative AI because they produce language as output.", answer: true },
+        { label: "B", text: "LLMs are trained using fully supervised learning in which human experts manually annotate every training sentence with labels.", answer: false },
+        { label: "C", text: "Training pairs for an autoregressive LLM consist of a randomly selected word sequence as input and the known next word as the target output.", answer: true },
+        { label: "D", text: "An autoregressive LLM can signal the end of text generation by outputting a special 'stop' word.", answer: true },
+        { label: "E", text: "Large language models are strictly limited to text tasks and cannot exhibit capabilities associated with artificial general intelligence.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Linear Models & Error Function",
+      scenario: "A researcher fits a polynomial of order M to N = 10 training data points by minimizing the sum-of-squares error function E(w) = (1/2) Σ {y(xn, w) − tn}².",
+      statements: [
+        { label: "A", text: "The polynomial y(x, w) = w0 + w1x + ... + wMx^M is a nonlinear function of the input x but a linear function of the coefficients w.", answer: true },
+        { label: "B", text: "The sum-of-squares error function E(w) equals zero if and only if the polynomial passes exactly through every training data point.", answer: true },
+        { label: "C", text: "The sum-of-squares error function can take negative values when the model systematically underestimates target values.", answer: false },
+        { label: "D", text: "Because E(w) is a quadratic function of the coefficients, it can be minimized exactly in closed form to yield a unique optimal solution w*.", answer: true },
+        { label: "E", text: "The optimal coefficient vector w* minimizes the sum of absolute differences between predictions and target values.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Overfitting & Model Complexity",
+      scenario: "A researcher fits polynomials of increasing order M to a training set of N = 10 points generated from sin(2πx) with added Gaussian noise. Training and test RMS errors are measured for each M.",
+      statements: [
+        { label: "A", text: "The M = 9 polynomial achieves zero training error by passing exactly through all 10 training data points.", answer: true },
+        { label: "B", text: "A high-order polynomial that achieves near-zero training error always generalizes well to new test data.", answer: false },
+        { label: "C", text: "For small values of M, large test errors occur because low-order polynomials are too inflexible to capture the oscillations of the underlying function.", answer: true },
+        { label: "D", text: "As polynomial order M increases, the magnitude of the fitted coefficients typically grows larger.", answer: true },
+        { label: "E", text: "Increasing the size of the training dataset, for a fixed model order, reduces the severity of overfitting.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Regularization",
+      scenario: "To combat overfitting in a degree-9 polynomial, a researcher uses the regularized error function Ẽ(w) = E(w) + (λ/2)||w||², where λ controls the strength of regularization.",
+      statements: [
+        { label: "A", text: "The regularization term discourages the coefficients from taking large magnitudes, thereby reducing overfitting.", answer: true },
+        { label: "B", text: "This approach is known in the statistics literature as a shrinkage method, and in neural networks as weight decay.", answer: true },
+        { label: "C", text: "Setting λ to a very large value is the optimal strategy because it maximally suppresses overfitting without any downside.", answer: false },
+        { label: "D", text: "The regularized error function Ẽ(w) can still be minimized in closed form.", answer: true },
+        { label: "E", text: "Regularization eliminates the need to select any hyperparameters because λ is learned automatically by minimizing the training error.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Model Selection & Cross-Validation",
+      scenario: "A machine learning researcher wants to select optimal hyperparameter values (polynomial order M and regularization parameter λ) for a model trained on a limited dataset.",
+      statements: [
+        { label: "A", text: "A hyperparameter differs from a model parameter in that its value is fixed before training and is not determined by minimizing the error function on training data.", answer: true },
+        { label: "B", text: "The best value of λ can be found by minimizing the training set error jointly with respect to both w and λ at the same time.", answer: false },
+        { label: "C", text: "A validation set (also called a hold-out or development set) is used to select the hyperparameter values that yield the lowest validation error.", answer: true },
+        { label: "D", text: "In S-fold cross-validation, (S−1)/S of the data is used for training in each run, and performance scores are averaged across all S runs.", answer: true },
+        { label: "E", text: "Leave-one-out cross-validation corresponds to the special case S = N, where N is the total number of training data points.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Biological Neurons & the Perceptron",
+      scenario: "Early neural network research was inspired by biological brains. The perceptron was one of the first artificial neural network models, introduced by Rosenblatt (1962).",
+      statements: [
+        { label: "A", text: "Biological neurons communicate through synapses, and changes in synaptic strengths represent a key mechanism for learning and memory in the brain.", answer: true },
+        { label: "B", text: "The perceptron uses a step function as its activation function, outputting 1 if the weighted sum of inputs exceeds zero, and 0 otherwise.", answer: true },
+        { label: "C", text: "The perceptron training algorithm is guaranteed to find a solution in a finite number of steps when the training data is linearly separable.", answer: true },
+        { label: "D", text: "Minsky and Papert's analysis proved that single-layer networks have limited capabilities, and their conjecture that multilayer networks would share these limitations also proved correct.", answer: false },
+        { label: "E", text: "Because perceptrons have a single layer of learnable weights, a modern multilayer network is sometimes still called a multilayer perceptron (MLP).", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Backpropagation",
+      scenario: "The introduction of backpropagation enabled effective training of neural networks with more than one layer of learnable parameters.",
+      statements: [
+        { label: "A", text: "Backpropagation evaluates derivatives of the error function with respect to all network parameters by propagating information backward from outputs toward inputs.", answer: true },
+        { label: "B", text: "Replacing the step activation function with continuous, differentiable activation functions was a critical change that made backpropagation applicable.", answer: true },
+        { label: "C", text: "In a feed-forward neural network, information flows backward through the layers during the forward pass (inference).", answer: false },
+        { label: "D", text: "Nodes in the middle layers of a neural network are called hidden units because their values do not appear in the training data.", answer: true },
+        { label: "E", text: "Stochastic gradient descent is the optimization algorithm most commonly used with backpropagation in modern machine learning.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Deep Networks & GPUs",
+      scenario: "The modern era of deep learning began in the second decade of the 21st century, driven by larger models, larger datasets, and specialized hardware.",
+      statements: [
+        { label: "A", text: "Deep neural networks are characterized by having many layers of learnable weights.", answer: true },
+        { label: "B", text: "GPUs accelerated neural network training because all units within a single network layer can compute their outputs in parallel.", answer: true },
+        { label: "C", text: "From 2012 onward, the compute needed to train state-of-the-art models doubled roughly every 2 years, consistent with Moore's law.", answer: false },
+        { label: "D", text: "Residual connections help address the problem of training signals becoming weaker as they are backpropagated through many successive layers.", answer: true },
+        { label: "E", text: "Automatic differentiation generates backpropagation code automatically from the forward-pass specification, allowing rapid experimentation with different network architectures.", answer: true },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Representation Learning & Foundation Models",
+      scenario: "Modern deep learning systems exhibit several advanced properties: representation learning, transfer learning, and the emergence of foundation models.",
+      statements: [
+        { label: "A", text: "Representation learning refers to the ability of deep networks to transform raw input data into internal representations that are semantically meaningful.", answer: true },
+        { label: "B", text: "Transfer learning allows internal representations learned on one dataset or task to be repurposed for related downstream tasks.", answer: true },
+        { label: "C", text: "Foundation models are large neural networks specifically designed for one narrowly defined task and cannot be adapted to other problems.", answer: false },
+        { label: "D", text: "Deep neural networks used for image processing sometimes develop internal representations similar to those observed in the mammalian visual cortex.", answer: true },
+        { label: "E", text: "Representation learning is only possible in shallow single-layer networks; depth plays no role in enabling it.", answer: false },
+      ]
+    },
+    {
+      chapter: "Ch. 1 — Deep Learning: Synthesis",
+      scenario: "A data scientist reviews key Chapter 1 themes: the relationship between model complexity, dataset size, generalization, and the scale of modern deep learning.",
+      statements: [
+        { label: "A", text: "For a fixed model complexity, overfitting becomes less severe as the size of the training dataset increases.", answer: true },
+        { label: "B", text: "A classical statistics heuristic suggests the number of training data points should be at least 5–10 times the number of learnable parameters.", answer: true },
+        { label: "C", text: "Modern large deep learning models commonly have significantly more parameters than training data points, yet can still achieve excellent performance.", answer: true },
+        { label: "D", text: "In practical deep learning, the error function is minimized through a closed-form solution analogous to the polynomial fitting case.", answer: false },
+        { label: "E", text: "Scaling up both model size and training data simultaneously tends to improve performance, sometimes outpacing architectural innovations.", answer: true },
+      ]
+    },
+  ],
+};
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let state = {
+  screen: "landing",   // "landing" | "quiz" | "results"
+  weekKey: null,
+  questions: [],
+  qIndex: 0,
+  checked: [],         // bool[5] for current question
+  submitted: false,
+  scoreTotal: 0,
+  maxTotal: 0,
+  history: [],         // {pts, max} per question
+};
+
+// ─── Render ───────────────────────────────────────────────────────────────────
+const app = document.getElementById("app");
+
+function render() {
+  if (state.screen === "landing") renderLanding();
+  else if (state.screen === "quiz") renderQuiz();
+  else renderResults();
+}
+
+function renderLanding() {
+  const weekKeys = Object.keys(WEEKS);
+  app.innerHTML = `
+    <h1>ML4T Exam 1 Practice</h1>
+    <p class="subtitle">Based on <em>An Introduction to Statistical Learning with Python</em> (ISLP)</p>
+    <label for="week-select">Select a week</label>
+    <select id="week-select">
+      ${weekKeys.map(k => `<option value="${k}">${k}</option>`).join("")}
+    </select>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="start-btn">Start Practice</button>
+    </div>
+  `;
+  document.getElementById("start-btn").addEventListener("click", startQuiz);
+}
+
+function startQuiz() {
+  const weekKey = document.getElementById("week-select").value;
+  state.weekKey = weekKey;
+  state.questions = [...WEEKS[weekKey]];
+  state.qIndex = 0;
+  state.checked = [false,false,false,false,false];
+  state.submitted = false;
+  state.scoreTotal = 0;
+  state.maxTotal = 0;
+  state.history = [];
+  state.screen = "quiz";
+  render();
+}
+
+function renderQuiz() {
+  const q = state.questions[state.qIndex];
+  const total = state.questions.length;
+  const qNum = state.qIndex + 1;
+  const pct = Math.round(((qNum - 1) / total) * 100);
+  const maxSoFar = state.history.length * 5;
+
+  const allChecked = state.checked.every(Boolean);
+  const noneChecked = state.checked.every(c => !c);
+  const warnVisible = !state.submitted && (allChecked || noneChecked) && state.checked.some((_, i) => true) && state.history.length + 1 > 0;
+  // Only show warning after user has interacted (at least one checked or all deliberately unchecked after checking)
+  const showWarning = !state.submitted && (allChecked || (noneChecked && state._interacted));
+
+  app.innerHTML = `
+    <div class="quiz-header">
+      <span class="progress-label">Question ${qNum} of ${total}</span>
+      <span class="score-chip">Score: ${state.scoreTotal} / ${maxSoFar} pts</span>
+    </div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" style="width:${pct}%"></div>
+    </div>
+    <span class="chapter-tag">${q.chapter}</span>
+    <div class="scenario">${q.scenario}</div>
+    <p style="font-size:0.82rem;color:#64748b;margin-bottom:0.6rem;">Select all statements you believe are <strong>True</strong>. Leave <strong>False</strong> statements unchecked.</p>
+    <ul class="options-list" id="options-list">
+      ${q.statements.map((s, i) => renderOption(s, i, q)).join("")}
+    </ul>
+    <div class="warning ${showWarning ? "visible" : ""}" id="warning-banner">
+      ⚠️ ${allChecked ? "You've selected all 5 — the question will score 0 points." : "Nothing selected — the question will score 0 points."}
+    </div>
+    ${state.submitted ? renderFeedback(q) : ""}
+    <div class="btn-row" style="margin-top:0.5rem">
+      ${!state.submitted
+        ? `<button class="btn btn-primary" id="submit-btn">Submit</button>`
+        : qNum < total
+          ? `<button class="btn btn-primary" id="next-btn">Next Question →</button>`
+          : `<button class="btn btn-primary" id="finish-btn">See Results</button>`
+      }
+    </div>
+  `;
+
+  if (!state.submitted) {
+    document.querySelectorAll(".option-label input").forEach((cb, i) => {
+      cb.addEventListener("change", () => {
+        state.checked[i] = cb.checked;
+        state._interacted = true;
+        render();
+      });
+    });
+    document.getElementById("submit-btn").addEventListener("click", submitQuestion);
+  } else {
+    document.getElementById("next-btn") && document.getElementById("next-btn").addEventListener("click", nextQuestion);
+    document.getElementById("finish-btn") && document.getElementById("finish-btn").addEventListener("click", showResults);
+  }
+}
+
+function renderOption(s, i, q) {
+  const checked = state.checked[i];
+  const answer = s.answer;
+  let cls = "";
+  let icon = "";
+
+  if (state.submitted) {
+    const correct = checked === answer;
+    if (checked && answer) { cls = "correct"; icon = `<span class="feedback-icon">✓</span>`; }
+    else if (!checked && !answer) { cls = "correct"; icon = `<span class="feedback-icon">✓</span>`; }
+    else if (checked && !answer) { cls = "wrong"; icon = `<span class="feedback-icon">✗</span>`; }
+    else { cls = "missed"; icon = `<span class="feedback-icon">✗</span>`; }
+  }
+
+  return `
+    <li>
+      <label class="option-label ${cls}">
+        <input type="checkbox" ${checked ? "checked" : ""} ${state.submitted ? "disabled" : ""} data-idx="${i}">
+        <strong>${s.label}.</strong>&nbsp;${s.text}
+        ${icon}
+      </label>
+    </li>
+  `;
+}
+
+function renderFeedback(q) {
+  const last = state.history[state.history.length - 1];
+  return `<div class="points-earned">Points earned this question: <strong>${last.pts} / ${last.max}</strong></div>`;
+}
+
+function submitQuestion() {
+  const q = state.questions[state.qIndex];
+  const allChecked = state.checked.every(Boolean);
+  const noneChecked = state.checked.every(c => !c);
+
+  let pts = 0;
+  if (!allChecked && !noneChecked) {
+    for (let i = 0; i < 5; i++) {
+      if (state.checked[i] === q.statements[i].answer) pts++;
+    }
+  }
+  const max = 5;
+  state.history.push({ pts, max });
+  state.scoreTotal += pts;
+  state.maxTotal += max;
+  state.submitted = true;
+  render();
+}
+
+function nextQuestion() {
+  state.qIndex++;
+  state.checked = [false,false,false,false,false];
+  state.submitted = false;
+  state._interacted = false;
+  render();
+}
+
+function showResults() {
+  state.screen = "results";
+  render();
+}
+
+function renderResults() {
+  const pct = Math.round((state.scoreTotal / state.maxTotal) * 100);
+  let grade = pct >= 90 ? "Excellent!" : pct >= 75 ? "Good work!" : pct >= 60 ? "Keep studying." : "Review the material.";
+
+  const rows = state.history.map((h, i) => {
+    const cls = h.pts === h.max ? "full" : h.pts === 0 ? "zero" : "partial";
+    const q = state.questions[i];
+    return `
+      <div class="result-row">
+        <span>Q${i+1} — ${q.chapter.split("—")[0].trim()}</span>
+        <span class="pts ${cls}">${h.pts}/${h.max}</span>
+      </div>
+    `;
+  }).join("");
+
+  app.innerHTML = `
+    <h2>Results — ${state.weekKey}</h2>
+    <div class="results-score">
+      <div class="score-big">${state.scoreTotal}<span style="font-size:1.5rem;font-weight:400;color:#64748b"> / ${state.maxTotal}</span></div>
+      <div class="score-pct">${pct}% — ${grade}</div>
+    </div>
+    <div class="results-breakdown">
+      <h3>Per-question breakdown</h3>
+      ${rows}
+    </div>
+    <div class="btn-row" style="margin-top:1.25rem">
+      <button class="btn btn-primary" id="retry-btn">Try Again</button>
+      <button class="btn btn-secondary" id="home-btn">Change Week</button>
+    </div>
+  `;
+
+  document.getElementById("retry-btn").addEventListener("click", startQuiz);
+  document.getElementById("home-btn").addEventListener("click", () => { state.screen = "landing"; render(); });
+}
+
+// ─── Boot ─────────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>

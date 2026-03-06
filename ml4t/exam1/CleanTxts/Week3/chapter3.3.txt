@@ -1,0 +1,616 @@
+
+Other Considerations in the Regression Model
+
+3.3.1
+
+Qualitative Predictors
+
+In our discussion so far, we have assumed that all variables in our linear
+regression model are quantitative. But in practice, this is not necessarily
+the case; often some predictors are qualitative.
+For example, the Credit data set displayed in Figure 3.6 records variables
+for a number of credit card holders. The response is balance (average credit
+card debt for each individual) and there are several quantitative predictors:
+age, cards (number of credit cards), education (years of education), income
+(in thousands of dollars), limit (credit limit), and rating (credit rating).
+Each panel of Figure 3.6 is a scatterplot for a pair of variables whose identities are given by the corresponding row and column labels. For example,
+the scatterplot directly to the right of the word “Balance” depicts balance
+versus age, while the plot directly to the right of “Age” corresponds to
+age versus cards. In addition to these quantitative variables, we also have
+four qualitative variables: own (house ownership), student (student status),
+status (marital status), and region (East, West or South).
+Predictors with Only Two Levels
+Suppose that we wish to investigate differences in credit card balance between those who own a house and those who don’t, ignoring the other variables for the moment. If a qualitative predictor (also known as a factor)
+only has two levels, or possible values, then incorporating it into a regreslevel
+sion model is very simple. We simply create an indicator or dummy variable
+that takes on two possible numerical values.10 For example, based on the variable
+own variable, we can create a new variable that takes the form
+=
+1
+if ith person owns a house
+xi =
+(3.26)
+0
+if ith person does not own a house,
+and use this variable as a predictor in the regression equation. This results
+in the model
+=
+β0 + β1 + " i
+if ith person owns a house
+yi = β 0 + β 1 x i + " i =
+(3.27)
+β0 + " i
+if ith person does not.
+Now β0 can be interpreted as the average credit card balance among those
+who do not own, β0 + β1 as the average credit card balance among those
+who do own their house, and β1 as the average difference in credit card
+balance between owners and non-owners.
+Table 3.7 displays the coefficient estimates and other information associated with the model (3.27). The average credit card debt for non-owners
+is estimated to be $509.80, whereas owners are estimated to carry $19.73
+in additional debt for a total of $509.80 + $19.73 = $529.53. However, we
+10 In the machine learning community, the creation of dummy variables to handle
+qualitative predictors is known as “one-hot encoding”.
+
+FIGURE 3.6. The Credit data set contains information about balance, age,
+cards, education, income, limit, and rating for a number of potential customers.
+
+notice that the p-value for the dummy variable is very high. This indicates
+that there is no statistical evidence of a difference in average credit card
+balance based on house ownership.
+The decision to code owners as 1 and non-owners as 0 in (3.27) is arbitrary, and has no effect on the regression fit, but does alter the interpretation of the coefficients. If we had coded non-owners as 1 and owners as 0, then the estimates for β0 and β1 would have been 529.53 and
+−19.73, respectively, leading once again to a prediction of credit card debt
+of $529.53 − $19.73 = $509.80 for non-owners and a prediction of $529.53
+for owners. Alternatively, instead of a 0/1 coding scheme, we could create
+a dummy variable
+=
+1
+if ith person owns a house
+xi =
+−1
+if ith person does not own a house
+and use this variable in the regression equation. This results in the model
+=
+β0 + β1 + " i
+if ith person owns a house
+yi = β0 +β1 xi +"i =
+β0 − β1 + " i
+if ith person does not own a house.
+
+Intercept
+own[Yes]
+
+Coefficient
+509.80
+
+Std. error
+33.13
+
+t-statistic
+15.389
+
+p-value
+< 0.0001
+0.6690
+
+TABLE 3.7. Least squares coefficient estimates associated with the regression
+of balance onto own in the Credit data set. The linear model is given in (3.27).
+That is, ownership is encoded as a dummy variable, as in (3.26).
+
+Now β0 can be interpreted as the overall average credit card balance (ignoring the house ownership effect), and β1 is the amount by which house
+owners and non-owners have credit card balances that are above and below
+the average, respectively.11 In this example, the estimate for β0 is $519.665,
+halfway between the non-owner and owner averages of $509.80 and $529.53.
+The estimate for β1 is $9.865, which is half of $19.73, the average difference
+between owners and non-owners. It is important to note that the final predictions for the credit balances of owners and non-owners will be identical
+regardless of the coding scheme used. The only difference is in the way that
+the coefficients are interpreted.
+Qualitative Predictors with More than Two Levels
+When a qualitative predictor has more than two levels, a single dummy
+variable cannot represent all possible values. In this situation, we can create
+additional dummy variables. For example, for the region variable we create
+two dummy variables. The first could be
+=
+1
+if ith person is from the South
+xi1 =
+(3.28)
+0
+if ith person is not from the South,
+and the second could be
+=
+1
+if ith person is from the West
+xi2 =
+0
+if ith person is not from the West.
+
+(3.29)
+
+Then both of these variables can be used in the regression equation, in
+order to obtain the model
+
+
+β0 +β1 +!i
+yi = β0 +β1 xi1 +β2 xi2 +!i = β0 +β2 +!i
+
+
+β0 +!i
+
+if ith person is from the South
+if ith person is from the West
+if ith person is from the East.
+(3.30)
+
+Now β0 can be interpreted as the average credit card balance for individuals
+from the East, β1 can be interpreted as the difference in the average balance
+between people from the South versus the East, and β2 can be interpreted
+as the difference in the average balance between those from the West versus
+the East. There will always be one fewer dummy variable than the number
+of levels. The level with no dummy variable—East in this example—is
+known as the baseline.
+11 Technically β is half the sum of the average debt for house owners and the average
+0
+debt for non-house owners. Hence, β0 is exactly equal to the overall average only if the
+two groups have an equal number of members.
+
+Intercept
+region[South]
+region[West]
+
+Coefficient
+531.00
+
+Std. error
+46.32
+
+t-statistic
+11.464
+
+p-value
+< 0.0001
+0.8260
+
+TABLE 3.8. Least squares coefficient estimates associated with the regression of
+balance onto region in the Credit data set. The linear model is given in (3.30).
+That is, region is encoded via two dummy variables (3.28) and (3.29).
+
+From Table 3.8, we see that the estimated balance for the baseline, East,
+is $531.00. It is estimated that those in the South will have $18.69 less
+debt than those in the East, and that those in the West will have $12.50
+less debt than those in the East. However, the p-values associated with the
+coefficient estimates for the two dummy variables are very large, suggesting
+no statistical evidence of a real difference in average credit card balance
+between South and East or between West and East.12 Once again, the
+level selected as the baseline category is arbitrary, and the final predictions
+for each group will be the same regardless of this choice. However, the
+coefficients and their p-values do depend on the choice of dummy variable
+coding. Rather than rely on the individual coefficients, we can use an F -test
+to test H0 : β1 = β2 = 0; this does not depend on the coding. This F -test
+has a p-value of 0.96, indicating that we cannot reject the null hypothesis
+that there is no relationship between balance and region.
+Using this dummy variable approach presents no difficulties when incorporating both quantitative and qualitative predictors. For example, to
+regress balance on both a quantitative variable such as income and a qualitative variable such as student, we must simply create a dummy variable
+for student and then fit a multiple regression model using income and the
+dummy variable as predictors for credit card balance.
+There are many different ways of coding qualitative variables besides
+the dummy variable approach taken here. All of these approaches lead to
+equivalent model fits, but the coefficients are different and have different
+interpretations, and are designed to measure particular contrasts. This topic contrast
+is beyond the scope of the book.
+
+3.3.2
+
+Extensions of the Linear Model
+
+The standard linear regression model (3.19) provides interpretable results
+and works quite well on many real-world problems. However, it makes several highly restrictive assumptions that are often violated in practice. Two
+of the most important assumptions state that the relationship between the
+predictors and response are additive and linear. The additivity assumption
+additive
+means that the association between a predictor Xj and the response Y does linear
+not depend on the values of the other predictors. The linearity assumption
+states that the change in the response Y associated with a one-unit change
+in Xj is constant, regardless of the value of Xj . In later chapters of this
+book, we examine a number of sophisticated methods that relax these two
+12 There could still in theory be a difference between South and West, although the
+data here does not suggest any difference.
+
+assumptions. Here, we briefly examine some common classical approaches
+for extending the linear model.
+Removing the Additive Assumption
+In our previous analysis of the Advertising data, we concluded that both TV
+and radio seem to be associated with sales. The linear models that formed
+the basis for this conclusion assumed that the effect on sales of increasing
+one advertising medium is independent of the amount spent on the other
+media. For example, the linear model (3.20) states that the average increase
+in sales associated with a one-unit increase in TV is always β1 , regardless
+of the amount spent on radio.
+However, this simple model may be incorrect. Suppose that spending
+money on radio advertising actually increases the effectiveness of TV advertising, so that the slope term for TV should increase as radio increases.
+In this situation, given a fixed budget of $100,000, spending half on radio
+and half on TV may increase sales more than allocating the entire amount
+to either TV or to radio. In marketing, this is known as a synergy effect,
+and in statistics it is referred to as an interaction effect. Figure 3.5 suggests that such an effect may be present in the advertising data. Notice
+that when levels of either TV or radio are low, then the true sales are lower
+than predicted by the linear model. But when advertising is split between
+the two media, then the model tends to underestimate sales.
+Consider the standard linear regression model with two variables,
+Y = β0 + β1 X1 + β2 X2 + ".
+According to this model, a one-unit increase in X1 is associated with an
+average increase in Y of β1 units. Notice that the presence of X2 does
+not alter this statement—that is, regardless of the value of X2 , a oneunit increase in X1 is associated with a β1 -unit increase in Y . One way of
+extending this model is to include a third predictor, called an interaction
+term, which is constructed by computing the product of X1 and X2 . This
+results in the model
+Y = β0 + β1 X1 + β2 X2 + β3 X1 X2 + ".
+
+(3.31)
+
+How does inclusion of this interaction term relax the additive assumption?
+Notice that (3.31) can be rewritten as
+Y
+
+=
+=
+
+β0 + (β1 + β3 X2 )X1 + β2 X2 + "
+β0 + β̃1 X1 + β2 X2 + "
+
+(3.32)
+
+where β̃1 = β1 + β3 X2 . Since β̃1 is now a function of X2 , the association
+between X1 and Y is no longer constant: a change in the value of X2 will
+change the association between X1 and Y . A similar argument shows that
+a change in the value of X1 changes the association between X2 and Y .
+For example, suppose that we are interested in studying the productivity of a factory. We wish to predict the number of units produced on the
+basis of the number of production lines and the total number of workers.
+It seems likely that the effect of increasing the number of production lines
+
+Intercept
+TV
+radio
+TV×radio
+
+Coefficient
+6.7502
+
+Std. error
+0.248
+
+t-statistic
+27.23
+
+p-value
+< 0.0001
+< 0.0001
+0.0014
+< 0.0001
+
+TABLE 3.9. For the Advertising data, least squares coefficient estimates associated with the regression of sales onto TV and radio, with an interaction term,
+as in (3.33).
+
+will depend on the number of workers, since if no workers are available
+to operate the lines, then increasing the number of lines will not increase
+production. This suggests that it would be appropriate to include an interaction term between lines and workers in a linear model to predict units.
+Suppose that when we fit the model, we obtain
+units
+
+≈
+=
+
+1.2 + 3.4 × lines + 0.22 × workers + 1.4 × (lines × workers)
+1.2 + (3.4 + 1.4 × workers) × lines + 0.22 × workers.
+
+In other words, adding an additional line will increase the number of units
+produced by 3.4 + 1.4 × workers. Hence the more workers we have, the
+stronger will be the effect of lines.
+We now return to the Advertising example. A linear model that uses
+radio, TV, and an interaction between the two to predict sales takes the
+form
+sales
+
+=
+=
+
+β0 + β1 × TV + β2 × radio + β3 × (radio × TV) + "
+β0 + (β1 + β3 × radio) × TV + β2 × radio + ".
+(3.33)
+
+We can interpret β3 as the increase in the effectiveness of TV advertising
+associated with a one-unit increase in radio advertising (or vice-versa). The
+coefficients that result from fitting the model (3.33) are given in Table 3.9.
+The results in Table 3.9 strongly suggest that the model that includes the
+interaction term is superior to the model that contains only main effects.
+main effect
+The p-value for the interaction term, TV×radio, is extremely low, indicating
+that there is strong evidence for Ha : β3 %= 0. In other words, it is clear that
+the true relationship is not additive. The R2 for the model (3.33) is 96.8 %,
+compared to only 89.7 % for the model that predicts sales using TV and
+radio without an interaction term. This means that (96.8 − 89.7)/(100 −
+89.7) = 69 % of the variability in sales that remains after fitting the additive model has been explained by the interaction term. The coefficient
+estimates in Table 3.9 suggest that an increase in TV advertising of $1,000 is
+associated with increased sales of (β̂1 + β̂3 × radio)×1,000 = 19+1.1× radio
+units. And an increase in radio advertising of $1,000 will be associated with
+an increase in sales of (β̂2 + β̂3 × TV) × 1,000 = 29 + 1.1 × TV units.
+In this example, the p-values associated with TV, radio, and the interaction term all are statistically significant (Table 3.9), and so it is obvious
+that all three variables should be included in the model. However, it is
+sometimes the case that an interaction term has a very small p-value, but
+the associated main effects (in this case, TV and radio) do not. The hierarchical principle states that if we include an interaction in a model, we
+
+hierarchical
+principle
+
+should also include the main effects, even if the p-values associated with
+their coefficients are not significant. In other words, if the interaction between X1 and X2 seems important, then we should include both X1 and
+X2 in the model even if their coefficient estimates have large p-values. The
+rationale for this principle is that if X1 × X2 is related to the response,
+then whether or not the coefficients of X1 or X2 are exactly zero is of little interest. Also X1 × X2 is typically correlated with X1 and X2 , and so
+leaving them out tends to alter the meaning of the interaction.
+In the previous example, we considered an interaction between TV and
+radio, both of which are quantitative variables. However, the concept of
+interactions applies just as well to qualitative variables, or to a combination
+of quantitative and qualitative variables. In fact, an interaction between
+a qualitative variable and a quantitative variable has a particularly nice
+interpretation. Consider the Credit data set from Section 3.3.1, and suppose
+that we wish to predict balance using the income (quantitative) and student
+(qualitative) variables. In the absence of an interaction term, the model
+takes the form
+=
+β2
+if ith person is a student
+balancei ≈ β0 + β1 × incomei +
+0
+if ith person is not a student
+=
+β0 + β2
+if ith person is a student
+= β1 × incomei +
+β0
+if ith person is not a student.
+(3.34)
+Notice that this amounts to fitting two parallel lines to the data, one for
+students and one for non-students. The lines for students and non-students
+have different intercepts, β0 + β2 versus β0 , but the same slope, β1 . This
+is illustrated in the left-hand panel of Figure 3.7. The fact that the lines
+are parallel means that the average effect on balance of a one-unit increase
+in income does not depend on whether or not the individual is a student.
+This represents a potentially serious limitation of the model, since in fact a
+change in income may have a very different effect on the credit card balance
+of a student versus a non-student.
+This limitation can be addressed by adding an interaction variable, created by multiplying income with the dummy variable for student. Our
+model now becomes
+=
+β2 + β3 × incomei if student
+balancei ≈ β0 + β1 × incomei +
+0
+if not student
+=
+(β0 + β2 ) + (β1 + β3 ) × incomei if student
+=
+β0 + β1 × incomei
+if not student.
+(3.35)
+
+Once again, we have two different regression lines for the students and
+the non-students. But now those regression lines have different intercepts,
+β0 +β2 versus β0 , as well as different slopes, β1 +β3 versus β1 . This allows for
+the possibility that changes in income may affect the credit card balances
+of students and non-students differently. The right-hand panel of Figure 3.7
+
+student
+non−student
+
+FIGURE 3.7. For the Credit data, the least squares lines are shown for prediction of balance from income for students and non-students. Left: The model
+(3.34) was fit. There is no interaction between income and student. Right: The
+model (3.35) was fit. There is an interaction term between income and student.
+
+shows the estimated relationships between income and balance for students
+and non-students in the model (3.35). We note that the slope for students
+is lower than the slope for non-students. This suggests that increases in
+income are associated with smaller increases in credit card balance among
+students as compared to non-students.
+Non-linear Relationships
+As discussed previously, the linear regression model (3.19) assumes a linear
+relationship between the response and predictors. But in some cases, the
+true relationship between the response and the predictors may be nonlinear. Here we present a very simple way to directly extend the linear model
+to accommodate non-linear relationships, using polynomial regression. In
+polynomial
+later chapters, we will present more complex approaches for performing regression
+non-linear fits in more general settings.
+Consider Figure 3.8, in which the mpg (gas mileage in miles per gallon)
+versus horsepower is shown for a number of cars in the Auto data set. The
+orange line represents the linear regression fit. There is a pronounced relationship between mpg and horsepower, but it seems clear that this relationship is in fact non-linear: the data suggest a curved relationship. A simple
+approach for incorporating non-linear associations in a linear model is to
+include transformed versions of the predictors. For example, the points in
+Figure 3.8 seem to have a quadratic shape, suggesting that a model of the
+quadratic
+form
+mpg = β0 + β1 × horsepower + β2 × horsepower2 + "
+
+(3.36)
+
+may provide a better fit. Equation 3.36 involves predicting mpg using a
+non-linear function of horsepower. But it is still a linear model! That is,
+(3.36) is simply a multiple linear regression model with X1 = horsepower
+and X2 = horsepower2 . So we can use standard linear regression software to
+estimate β0 , β1 , and β2 in order to produce a non-linear fit. The blue curve
+in Figure 3.8 shows the resulting quadratic fit to the data. The quadratic
+
+Miles per gallon
+
+Linear
+Degree 2
+Degree 5
+
+Horsepower
+
+FIGURE 3.8. The Auto data set. For a number of cars, mpg and horsepower are
+shown. The linear regression fit is shown in orange. The linear regression fit for a
+model that includes horsepower2 is shown as a blue curve. The linear regression
+fit for a model that includes all polynomials of horsepower up to fifth-degree is
+shown in green.
+
+Intercept
+horsepower
+horsepower2
+
+Coefficient
+56.9001
+
+Std. error
+1.8004
+
+t-statistic
+31.6
+
+p-value
+< 0.0001
+< 0.0001
+< 0.0001
+
+TABLE 3.10. For the Auto data set, least squares coefficient estimates associated
+with the regression of mpg onto horsepower and horsepower2 .
+
+fit appears to be substantially better than the fit obtained when just the
+linear term is included. The R2 of the quadratic fit is 0.688, compared to
+0.606 for the linear fit, and the p-value in Table 3.10 for the quadratic term
+is highly significant.
+If including horsepower2 led to such a big improvement in the model, why
+not include horsepower3 , horsepower4 , or even horsepower5 ? The green curve
+in Figure 3.8 displays the fit that results from including all polynomials up
+to fifth degree in the model (3.36). The resulting fit seems unnecessarily
+wiggly—that is, it is unclear that including the additional terms really has
+led to a better fit to the data.
+The approach that we have just described for extending the linear model
+to accommodate non-linear relationships is known as polynomial regression, since we have included polynomial functions of the predictors in the
+regression model. We further explore this approach and other non-linear
+extensions of the linear model in Chapter 7.
+
+3.3.3
+
+Potential Problems
+
+When we fit a linear regression model to a particular data set, many problems may occur. Most common among these are the following:
+1. Non-linearity of the response-predictor relationships.
+2. Correlation of error terms.
+3. Non-constant variance of error terms.
+4. Outliers.
+5. High-leverage points.
+6. Collinearity.
+In practice, identifying and overcoming these problems is as much an
+art as a science. Many pages in countless books have been written on this
+topic. Since the linear regression model is not our primary focus here, we
+will provide only a brief summary of some key points.
+1. Non-linearity of the Data
+Residual Plot for Quadratic Fit
+
+0
+−15 −10
+
+−15 −10
+
+Residual Plot for Linear Fit
+
+FIGURE 3.9. Plots of residuals versus predicted (or fitted) values for the Auto
+data set. In each plot, the red line is a smooth fit to the residuals, intended to make
+it easier to identify a trend. Left: A linear regression of mpg on horsepower. A
+strong pattern in the residuals indicates non-linearity in the data. Right: A linear
+regression of mpg on horsepower and horsepower2 . There is little pattern in the
+residuals.
+
+The linear regression model assumes that there is a straight-line relationship between the predictors and the response. If the true relationship
+is far from linear, then virtually all of the conclusions that we draw from
+the fit are suspect. In addition, the prediction accuracy of the model can
+be significantly reduced.
+Residual plots are a useful graphical tool for identifying non-linearity.
+residual plot
+Given a simple linear regression model, we can plot the residuals, ei =
+
+yi − ŷi , versus the predictor xi . In the case of a multiple regression model,
+since there are multiple predictors, we instead plot the residuals versus
+the predicted (or fitted) values ŷi . Ideally, the residual plot will show no
+fitted
+discernible pattern. The presence of a pattern may indicate a problem with
+some aspect of the linear model.
+The left panel of Figure 3.9 displays a residual plot from the linear regression of mpg onto horsepower on the Auto data set that was illustrated in
+Figure 3.8. The red line is a smooth fit to the residuals, which is displayed in
+order to make it easier to identify any trends. The residuals exhibit a clear
+U-shape, which provides a strong indication of non-linearity in the data.
+In contrast, the right-hand panel of Figure 3.9 displays the residual plot
+that results from the model (3.36), which contains a quadratic term. There
+appears to be little pattern in the residuals, suggesting that the quadratic
+term improves the fit to the data.
+If the residual plot indicates that there are non-linear associations in the
+data, then a simple approach
+√ is to use non-linear transformations of the
+predictors, such as log X, X, and X 2 , in the regression model. In the
+later chapters of this book, we will discuss other more advanced non-linear
+approaches for addressing this issue.
+2. Correlation of Error Terms
+An important assumption of the linear regression model is that the error
+terms, "1 , "2 , . . . , "n , are uncorrelated. What does this mean? For instance,
+if the errors are uncorrelated, then the fact that "i is positive provides
+little or no information about the sign of "i+1 . The standard errors that
+are computed for the estimated regression coefficients or the fitted values
+are based on the assumption of uncorrelated error terms. If in fact there is
+correlation among the error terms, then the estimated standard errors will
+tend to underestimate the true standard errors. As a result, confidence and
+prediction intervals will be narrower than they should be. For example,
+a 95 % confidence interval may in reality have a much lower probability
+than 0.95 of containing the true value of the parameter. In addition, pvalues associated with the model will be lower than they should be; this
+could cause us to erroneously conclude that a parameter is statistically
+significant. In short, if the error terms are correlated, we may have an
+unwarranted sense of confidence in our model.
+As an extreme example, suppose we accidentally doubled our data, leading to observations and error terms identical in pairs. If we ignored this, our
+standard error calculations would be as if we had a sample of size 2n, when
+in fact we have only n samples. Our estimated parameters would be the
+same for the 2n samples as for the√n samples, but the confidence intervals
+would be narrower by a factor of 2!
+Why might correlations among the error terms occur? Such correlations
+frequently occur in the context of time series data, which consists of obtime series
+servations for which measurements are obtained at discrete points in time.
+In many cases, observations that are obtained at adjacent time points will
+have positively correlated errors. In order to determine if this is the case for
+a given data set, we can plot the residuals from our model as a function of
+time. If the errors are uncorrelated, then there should be no discernible pat-
+
+1
+−1 0
+−3
+
+ρ=0.0
+
+ρ=0.5
+
+ρ=0.9
+
+Observation
+
+FIGURE 3.10. Plots of residuals from simulated time series data sets generated
+with differing levels of correlation ρ between error terms for adjacent time points.
+
+tern. On the other hand, if the error terms are positively correlated, then
+we may see tracking in the residuals—that is, adjacent residuals may have
+similar values. Figure 3.10 provides an illustration. In the top panel, we see
+the residuals from a linear regression fit to data generated with uncorrelated errors. There is no evidence of a time-related trend in the residuals.
+In contrast, the residuals in the bottom panel are from a data set in which
+adjacent errors had a correlation of 0.9. Now there is a clear pattern in the
+residuals—adjacent residuals tend to take on similar values. Finally, the
+center panel illustrates a more moderate case in which the residuals had a
+correlation of 0.5. There is still evidence of tracking, but the pattern is less
+clear.
+Many methods have been developed to properly take account of correlations in the error terms in time series data. Correlation among the error
+terms can also occur outside of time series data. For instance, consider a
+study in which individuals’ heights are predicted from their weights. The
+assumption of uncorrelated errors could be violated if some of the individuals in the study are members of the same family, eat the same diet,
+or have been exposed to the same environmental factors. In general, the
+assumption of uncorrelated errors is extremely important for linear regression as well as for other statistical methods, and good experimental design
+is crucial in order to mitigate the risk of such correlations.
+
+Response log(Y)
+
+Response Y
+
+0.0
+−0.8 −0.6 −0.4 −0.2
+
