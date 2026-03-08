@@ -1,0 +1,126 @@
+Title: Is the Stock Market Rigged?
+Source type: Video transcript (cleaned for LLM ingestion)
+
+This month marks the fifth anniversary of the current bull market on Wall Street, making it one of the longest and strongest in history. Yet U.S. stock ownership is at a record low, and less than half of Americans trust banks and financial services.
+
+In the last two weeks, the New York Attorney General and the Commodity Futures Trading Commission in Washington both launched investigations into high-frequency computerized stock trading, which now controls more than half the market.
+
+The probes were announced just ahead of a highly anticipated book by best-selling author Michael Lewis, called Flash Boys. In it, Lewis argues that the stock market is rigged to benefit a group of insiders who have made tens of billions of dollars by exploiting computerized trading.
+
+The story is told through an unlikely cast of characters who figured out what was going on and devised a plan to correct it. It could have a huge impact on Wall Street.
+
+Question: What is the headline?
+Answer (Michael Lewis): The stock market is rigged.
+
+Question: Which stock market?
+Answer: The United States stock market, the most iconic market in global capitalism.
+
+Question: Rigged by whom?
+Answer: A combination of stock exchanges, big Wall Street banks, and high-frequency traders.
+
+Question: Who are the victims?
+Answer: Everybody who has an investment in the stock market.
+
+Lewis says he is not talking about the stock market seen on television every day. That floor ceased to be the center of U.S. financial activity years ago and exists mostly as a photo opportunity.
+
+He is talking about a market where most trades now occur inside hundreds of thousands of black boxes located at more than 60 public and private exchanges, where billions of dollars in stock change hands every day with little or no public documentation.
+
+Trades are made by thousands of computers programmed to buy and sell every stock on the market at speeds around 100 times faster than a human blink. The system is so complex it is effectively invisible.
+
+Lewis argues that complexity disguises what is happening: if people cannot understand the system, they cannot question it.
+
+All of this is done by computers. It is too fast for humans. Humans have been effectively removed from the marketplace.
+
+Machines with secret programs trade stocks in tiny fractions of a second, too fast to be seen or recorded on a normal stock ticker. High-frequency traders, major Wall Street firms, and stock exchanges have spent billions to gain a millisecond advantage, just to see market prices and orders a flash before everyone else and act on that information.
+
+According to Lewis, insiders can move faster than ordinary investors, see incoming orders, and use that information against them.
+
+Question: What does "front run" mean here?
+Answer: If you try to buy shares, faster traders detect your intention, buy the shares first, then sell them back to you at a slightly higher price.
+
+This happens in infinitesimally small time windows. Even a millisecond advantage is enough to identify what a slower trader is about to do and do it first, at that trader's expense. That can push prices up, making the original buyer pay more.
+
+Lewis is not the first to allege this, but he says he was the first to find Brad Katsuyama, who figured out how it was being done.
+
+Katsuyama, a trader at the Royal Bank of Canada, noticed that the market he thought he knew had changed. The market appeared willing to sell stock, but when he tried to buy it, someone else bought first and the price moved up.
+
+In 2008, at age 30, Katsuyama ran RBC's New York stock desk with 25 traders. When they tried to buy large blocks for clients, orders were often only partially filled, and the stock price rose immediately after.
+
+Katsuyama described it like trying to buy four adjacent tickets online at $20 each, getting only two, then seeing the other two instantly relisted at $25.
+
+At first, he thought RBC's own technology was too slow. Then he visited a major hedge fund in Stamford, Connecticut and learned they were seeing the same issue.
+
+That convinced him it was systemic.
+
+He says it felt wrong that people investing on behalf of pension and retirement funds were being bait-and-switched every day.
+
+Katsuyama suspected the issue was in market "plumbing": how trades were routed through fiber-optic cables from Lower Manhattan to 13 public exchanges in northern New Jersey. But he could not get clear answers on what happened after pressing buy or sell.
+
+He assembled a team of technical experts and traders, including an Irish telecom specialist, Ronan Ryan, who understood high-speed fiber networks.
+
+Ryan had previously worked with high-frequency traders. He knew what they were building and how much they were spending.
+
+He told Katsuyama about Spread Networks, which laid a high-speed cable from futures markets in Chicago to exchanges in New Jersey. They reportedly spent about $300 million to shave roughly three milliseconds off the route and offered access to high-frequency firms for about $10 million each.
+
+For Katsuyama, this implied the profits involved were massive.
+
+Ryan also knew where cables were physically laid and mapped the fastest routes from Lower Manhattan to New Jersey exchanges down to milliseconds.
+
+Those maps made the mechanism clear: Katsuyama's orders reached one exchange first (BATS, in Weehawken), where high-frequency traders could detect the order and race ahead to other exchanges.
+
+Only fractions of a second later, Katsuyama's order reached those other venues, but the faster traders had already bought the shares and nudged prices up.
+
+The per-trade profit might be one or two cents, but it happened millions of times per day.
+
+Lewis characterizes it as a market skim.
+
+He cites one hedge fund manager who estimated that a $9 billion fund was losing around $300 million per year due to inability to execute at expected prices. That implied $300 million per year went to someone else.
+
+Question: Is this illegal?
+Answer: Not in this form.
+
+Traditional front-running is illegal, but Lewis argues this specific behavior had effectively become legalized through market structure.
+
+Ronan Ryan believed the only way to beat high-frequency traders was to remove their millisecond edge.
+
+His proposal: route orders so they arrive at all exchanges at nearly the same time. That means sending first to the farthest exchange and last to the nearest, intentionally slowing certain paths.
+
+Katsuyama's team built software to do this for RBC customers.
+
+Result: order fill rates improved dramatically, reportedly approaching 100%.
+
+They had beaten speed by slowing down.
+
+After that, Katsuyama and team met with major mutual funds, pension funds, and institutional investors to explain what they found. Many suspected they were being disadvantaged but did not understand how.
+
+Lewis says many prominent investors and asset managers were shocked by the explanation, including firms such as Capital Group, T. Rowe Price, Fidelity, and Vanguard.
+
+Greenlight Capital's David Einhorn said the team walked through maps, boxes, wires, and locations in detail, and that it was compelling.
+
+Encouraged by clients, Katsuyama decided to build something larger.
+
+In 2012, he left his high-paying role at RBC and, with part of his team, started a new exchange: IEX (Investors Exchange).
+
+He described it as a moral obligation: they had found a problem affecting millions of people who were losing money without realizing it.
+
+IEX was funded by large traditional investors and launched quietly in October.
+
+Its design included built-in "speed bumps" to reduce predatory latency advantages.
+
+A core mechanism was a coil of about 60 kilometers of fiber-optic cable between IEX and incoming high-speed trading signals, delaying everyone enough to neutralize micro-latency exploitation.
+
+Katsuyama said high-frequency firms would try to game the exchange, but noted that many asked for a back door after hearing how the "magic shoebox" worked.
+
+At the time of the interview, IEX had reached about 38.5 million shares in trading volume.
+
+It was still small and faced resistance from incumbents who preferred the status quo and could discourage customer flow.
+
+David Einhorn, an investor in IEX, said he believed it would survive and succeed in a major way.
+
+The transcript also notes that Goldman Sachs had recently endorsed IEX as a model for a more stable and less complicated market.
+
+Katsuyama's pitch: selling trust and transparency.
+
+Lewis concludes that Katsuyama's influence came from credibility. In a system with low trust, a demonstrably trustworthy actor can carry unusual power.
+
+Core thesis: this is a story about restoring trust in financial markets.

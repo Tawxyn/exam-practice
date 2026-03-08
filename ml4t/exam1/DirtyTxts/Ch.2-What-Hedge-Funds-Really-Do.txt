@@ -1,0 +1,389 @@
+CHAPTER 2
+
+So You Want to Be a Hedge
+Fund Manager
+You are reading this book because of your interest in hedge funds: you
+want to work in one, maybe establish a new one; or you want to regulate
+them, write about them, perhaps even abolish them. In any case, you
+need to understand what they are and how they do what they do.
+In this book we strive to present the essential concepts for quantitative fund management. We need to make some assumptions about our
+audience in order to frame our presentation. So we will assume you want
+to manage a fund, and we’ll get you started on the basics from that viewpoint. We will also focus on stocks in the U.S. markets.
+Let’s first start with some context. What is investing, and how does
+that relate to stocks?
+
+The Economic Role of Investing
+Economies grow by applying accumulated capital, along with other
+resources, to produce increasing amounts of goods and services. Capital
+is accumulated from the savings of households when they do not consume all of their income. Savings are invested in financial instruments
+if they can offer an attractive return. So available capital is constrained
+by household savings, and the investments that households make will be
+those expected to have the best prospects (to offer the best prospective
+return). Those finite resources (savings) are used most efficiently if there
+are institutions that help redeploy capital from assets with a poor return
+to those with superior return. That is the role for the financial sector, of
+which hedge funds are a major part.
+Investors can deploy their savings to a variety of financial instruments
+and institutions. The simplest version is to buy specific instruments, like
+
+10
+
+WHAT HEDGE FUNDS REALLY DO
+
+individual stocks and bonds. The problem for small investors is that they
+may not have enough capital to diversify over a range of instruments
+to control risk. Mutual funds pool several investors’ capital together and
+collectively purchase a diverse portfolio consistent with the fund’s charter (e.g., large and mature companies; or small, speculative companies;
+or short-term corporate bonds; or long-term municipal bonds). “Mutual
+funds” are their American name; they go by other names elsewhere,
+such as unit investment trusts in the United Kingdom. Mutual funds
+allow small investors to achieve diversification. As such, they are heavily
+­regulated—by the Securities and Exchange Commission (SEC) under the
+Investment Company Act of 1940 in the United States, for instance.
+
+What Are Hedge Funds?
+Mutual funds are restricted to investing pursuant to their charter, outlined
+to prospective investors in a “prospectus.” Most funds aspire to be fully
+invested most of the time. The first hedge fund, created by ex-journalist
+Albert Winslow Jones in 1949, specifically undertook a more flexible
+investing style. Jones specifically would “pair” trades, for instance, identifying two companies whose fortunes he expected to move in opposite
+directions—say two competitors in a duopolistic industry. Jones would
+buy stock in one company (“go long” that company) and bet against the
+competitor (“go short” the competitor). This was a “hedged” strategy, in
+that his “short” hedged against the possibility that the entire market (and
+thus individual stocks) might move against his position. Jones, in fact,
+called his fund a “hedged fund” and objected to the term’s bastardization
+into the now-common “hedge fund.”
+From the industry’s beginnings in the mid-20th century, hedge funds
+grew at a relatively modest rate for the first quarter century, only passing
+$100 billion in assets under management (AUM) in the early 1990s. But
+thereafter the industry grew rapidly, passing $500 billion around 2000,
+and $1 trillion around 2004. The roughly 10,000 extant hedge funds now
+manage over $2 trillion. If these assets were distributed uniformly among
+funds—which they definitely are not—a typical fund would manage
+$200 million, and earn fees of several million dollars a year. No wonder
+they’ve piqued your interest!
+
+So You Want to Be a Hedge Fund Manager
+
+11
+
+How Hedge Funds Differ from Mutual Funds
+Both types of funds represent pools of investors putting their capital in
+the hands of a manager. But mutual funds are far more transparent than
+hedge funds. Mutual funds have accepted SEC regulation as the price
+of having legal access to millions of small investors. Mutual funds must
+specify their strategies in their prospectus, and report their holdings and
+their results regularly.
+Hedge funds, by contrast, are very lightly regulated. In the United
+States, restrictions imposed on investor qualifications serve to replace regulation: eligible investors must be “accredited,” with levels of assets that
+put them in the upper few percent of American households. The implicit
+argument is that prosperous individuals can take care of themselves.
+Hedge funds are prohibited from advertising. (This may soon change,
+as outlined in the final chapter). In fact, many hedge fund managers
+shun publicity, in part to avoid any hint that they are engaged in backdoor advertising through the news. Hedge funds’ original investors were
+wealthy individuals and families, but by the 1990s these were overtaken
+by large institutions such as charitable endowments and pension funds.
+Hedge funds’ legendary secretiveness goes far beyond skittishness
+about running afoul of the regulators. Finance is an industry where legally
+protecting intellectual property (like a new financial product or investing strategy) is virtually impossible, so secrecy is the only way to prevent
+(or more accurately, delay) competitors from copying your innovations.
+Hedge funds generally do not disclose their holdings and strategies
+­publicly—and often report them to their investors only in the broadest
+terms, after the fact. Pulling back this curtain is one of the main motivations behind this book.
+
+Hedge Fund Strategies
+With thousands of funds, there are many possible ways to categorize their
+strategies. Strategies of many funds fall into four major types:
+• Equity—where the emphasis is on stock selection. Many
+equity funds follow A. W. Jones’s original long/short model.
+
+12
+
+WHAT HEDGE FUNDS REALLY DO
+
+• Arbitrage—where managers seek instances where price relationships between assets fall outside of normal variation, and
+bet on the relationship returning to normal. Early practitioners plied this trade in fixed income markets, but it now
+occurs in any market where quantitative analysis can identify
+price discrepancies to exploit.
+• Momentum or direction—where managers have a macro view
+of the probable direction of prices in a market.
+• Event-driven—trades instigated based on an event, such as a
+war, a supply disruption, or a merger. In the 1990s, “global
+macro” funds gained in prominence, mainly using eventdriven strategies. Several prominent funds made their reputations in merger arbitrage.
+This is only one way to categorize strategies; you will encounter others.
+Because the industry is relatively young and innovation is so continuous,
+no taxonomy will last long.
+Managers can be long-only (they make money only if the asset rises
+in price), short-only (they profit only if the asset’s price falls), or (most
+commonly) hedged (both long and short, although usually not equally).
+In addition, because the profits per transaction for many of these trades
+will be quite small proportionally, many hedge funds borrow extensively to
+“leverage” their investment. (UK investors refer to “leverage” as “gearing.”)
+So a “130/30” equity strategy, for example, has gone long with 130 percent
+of available capital (by borrowing 30 percent over and above 100 percent
+equity capital), and has shorted 30 percent of the portfolio as a hedge.
+Many of these distinctions will be elaborated in later chapters. Because
+the investing industry is so densely populated and so heavily compensated
+(as discussed later), there is intense competition to identify opportunities
+for likely profit. The original hedge funds operated mainly on experience
+and instinct: funds founded by Jones, Robertson, Michael Steinhardt, or
+Soros are each examples. By the 1990s, quantitative finance had matured
+as an academic discipline and computing power had become inexpensive
+enough that it was possible to examine many thousands of relationships
+among asset prices. The statistical work was often conducted by economists, physicists, or mathematicians, who collectively came to be termed
+
+So You Want to Be a Hedge Fund Manager
+
+13
+
+“rocket scientists.” Some of the foundations of this “quant” a­nalysis
+approach will be introduced in this book.
+
+Funds of Funds
+Because hedge funds are barred from advertising (thereby making any
+search for a fund more challenging), choosing the right fund can be difficult for a client. Furthermore, the range of strategies is very wide, and
+intense competition among hedge funds and major Wall Street institutions can rapidly erode the effectiveness of any strategy. So institutional
+clients increasingly are turning to “funds of hedge funds”—managers who
+select the hedge funds into which to invest clients’ money, monitor those
+funds’ strategies and performance, and reallocate among funds as market
+conditions change. Funds of funds add their own fees on top of the fees
+charged by hedge funds themselves.
+
+Hedge Fund Fees
+Mutual funds cover their expenses based on an “expense ratio,” measured
+as a percentage of assets under management. The median fund charges
+a bit more than 1 percent of assets each year. (Many funds also charge
+a “load”—a fee paid either at the time of original purchase or when the
+investor liquidates his holdings, known as a “front end load” or “back end
+load.”) Note that the expense ratio is not dependent on performance—an
+investor pays it regardless of how his investment performed. This can be
+grating in a year when returns are negative: the investor is paying for the
+privilege of seeing their assets decline.
+By contrast, hedge funds are compensated in a hybrid structure,
+with one part being a traditional expense ratio—usually 2 percent, not
+1 percent —and the remainder being a portion of the fund’s returns—
+customarily 20 percent. The 20 percent performance fee is of absolute performance, not for performance above a benchmark. This “2 and 20” fee
+arrangement is common, identical to that in private equity firms (investment firms that buy a privately held company and improve its operations
+in order to sell it later at a profit, usually in a public stock offering). However, it is not a universal standard: Funds with superior reputations may
+
+14
+
+WHAT HEDGE FUNDS REALLY DO
+
+charge much more. In its heyday, Renaissance Capital’s Medallion Fund
+charged 5 percent annually and 44 percent of returns, and we’ve heard of
+incentive fees as high as 55 percent of returns. However, as the industry
+has become more crowded and its downside protection was sorely tested
+in the 2008 market meltdown, some firms are dropping their fees to as
+low as 1 percent annually plus 10 percent performance fee.
+These fees have been sufficient to make many hedge fund founders
+billionaires. Sometimes they have earned it, generated annual returns of
+the long term well in excess of 20 percent annually (well over twice the
+return of most stock indexes). But since the industry as a whole has disappointed lately, critics argue that hedge funds overcharge and underdeliver.
+
+How Hedge Funds are Evaluated (I): Return
+The core issues in evaluating any investment are return and risk.
+Return is straightforward: Compare the value of holdings at the end
+of a time period (a year, or a day) to the value at the beginning. In mathematical terms
+Return = [Value (t)/Value (t – 1)] – 1, where (t) indicates a time period.
+Example:
+Value (t) = $110
+Value (t – 1) = $100
+Return = [$110/$100] – 1 = 1.1 – 1 = .1 = 10%.
+For much of this book, we will be considering daily returns. Commonly,
+to compare investments, returns are annualized, converting days to years.
+This is done by compounding the daily return by the number of trading
+days in a year, 252 as follows (in Python):
+annual_return = cumprod(daily_returns+1) – 1
+There are 260 weekdays in a 52-week year, but generally markets are
+closed for about 8 days each year for holidays.
+Since money left in a growing asset compounds (like interest), the
+right way to compute an annual return over several years is the compound
+annual growth rate (CAGR). Say, your portfolio was worth $200 in 2012,
+
+So You Want to Be a Hedge Fund Manager
+
+15
+
+after starting at $100 in 2002. That’s a 100 percent cumulative return over
+10 years. But the annual return is not simply [100 percent/10 years] or
+10 percent because that computation ignores the compounding effect.
+Compounding over multiple years is captured by raising an annual
+return to an exponent, representing the number of years that the return
+compounds (in this case, 10 years). In the aforementioned example
+$200 = $100 × (1 + annual return) ^ 10
+Since annual return, or CAGR, is unknown, we must rearrange this
+equation:
+[$200/100] = (1 + CAGR) ^ 10
+2 = (1 + CAGR) ^ 10
+2^(1/10) = 1 + CAGR
+Since 2 ^ 1/10 = 1.072, then
+1.072 = 1 + CAGR, and
+CAGR = 7.2% (i.e., 1.072 – 1)
+So a portfolio that grows at 7.2 percent on average each year will double in size in 10 years. We use the term CAGR to remind us that we
+need to reflect the effects of compounding in computing annual returns.
+In this instance, the effect of compounding was substantial: 7.2 percent
+compound annual growth was enough to double a portfolio in 10 years,
+whereas it would need to grow at 10 percent annual if the growth process
+was “simple” (not compounded).
+Compounding, and exponential math, is very difficult to develop
+intuitively or to mentally calculate easily. We chose this example to introduce you to your new best friend: the Rule of 72. It is an approximation
+of compounding. This rule states that you can approximate the number
+of periods that will be needed for a sum to double by dividing the CAGR
+(in whole numbers) into the number 72. A portfolio growing at 8 percent will need about 9 years to double, because 8 × 9 = 72. At 6 percent
+CAGR, 12 years will be required to double (6 × 12 = 72). Similarly, you
+can infer a CAGR if you know the starting and ending values of a portfolio and the time elapsed. So if a portfolio doubled over 15 years, you
+know that its CAGR was a bit less than 5 percent; specifically, 4.8 percent
+(15 × 5 = 75; 15 × 4.8 = 72).
+
+16
+
+WHAT HEDGE FUNDS REALLY DO
+
+Wall Street interviewers routinely ask the interviewee compounding
+math problems that most people cannot calculate mentally without a
+shortcut like this. It is also effective for portfolio growth that is a multiple
+of two, even a large one. For example, an asset that grew from $100 to
+$400 has grown four-fold, or 2 × 2 (2 ^ 2); to $800 is eight-fold (2 ^ 3),
+and so forth. This can be very helpful when considering portfolio growth
+over long time periods: A 100-fold increase is a bit less than 2 ^ 7; 1000fold is almost exactly 2 ^ 10 (2 ^ 10 = 1,024).
+Hedge funds typically receive an incentive or performance fee based
+on return: 20 percent of the investor’s return over and above a 2 percent
+management fee. So, for example, if the hedge fund returns 4 percent in a year, the fund managers will receive 2 percent fee plus (0.2 ×
+[4% – 2%] = 0.4%), or a total compensation of 2.4 percent of AUM.
+In that example, the managers kept 60 percent of the portfolio’s return
+(2.4%/4%). If the portfolio earned 10 percent in a year, the fund’s compensation would be 2 percent plus [0.2 × (10% – 2%) = 1.6%], or 36
+percent of the portfolio’s return. In other words, all (100 percent) the
+first 2 percent of the portfolio’s return goes to the fund manager, then
+20 percent of any returns above 2 percent. Note that if the portfolio’s
+returns are negative, the manager will earn no incentive fee, but the
+2 percent management fee will represent far more than the (negative)
+return the client earned.
+As you can see, hedge fund fees are very generous to fund managers.
+
+How Hedge Funds Are Evaluated (II):
+Return Versus Benchmark (Relative Return)
+Compensating managers based on absolute return implies that no positive return could have been earned otherwise: that the only alternative
+would be to put your money under your mattress. But realistically, investors have a vast array of alternatives, from short-term fixed income instruments such as commercial paper or treasury bills to a range of equities
+(stocks). Investment managers are commonly compared to a benchmark:
+a nonmanaged investment that presents a relevant comparator. For funds
+that invest in equities, the most common benchmark is a stock index
+such as the S&P 500 (the 500 largest companies, measured by market
+
+So You Want to Be a Hedge Fund Manager
+
+17
+
+capitalization, traded on U.S. stock exchanges). Funds that use narrower
+strategies can be compared to narrower and more pertinent indexes or a
+weighted combination of more than one index (with the weights based
+on the asset class weights in the strategy). Finally, a few research firms
+such as Hedge Fund Research, Inc. compile an index of hedge fund performance (HFRX). However, this index has significant drawbacks, which
+are outlined later.
+Decades of financial academic research, drawn mainly, although not
+solely, from mutual funds, has demonstrated that very few active investment managers produce consistent performance that exceeds their benchmark. (Exceeding a benchmark constitutes alpha, a measure of investing
+skill, defined later.) This is a major investor relations problem for active
+managers: Activity imposes management and trading costs, which are
+only justified if they produce superior returns to “passive” (unmanaged)
+investing. Many studies by finance academics have found such justification very hard to come by: Active management at best matches, and more
+typically underperforms, benchmark indexes before management costs.
+Frequent trading—common for active managers—and fees pose a considerable further drag.
+With hedge funds, those fees are significantly higher than with
+mutual funds. Studies of hedge funds have found that managers can
+frequently generate positive alpha (outperform their benchmark), but
+their compensation absorbs at least half of the portfolio’s annual excess
+return over the benchmark. One recent analysis found that over the
+life of the industry for which performance data were available (1998 to
+2010), managers absorbed between 84 and 98 percent of the total profits
+earned. In other words, clients kept only one-fiftieth to one-sixth of total
+return. And in one-fourth of those years, total profits were ­negative—
+but fund managers were still paid 2 percent of AUM. John Bogle, the
+founder of Vanguard mutual funds, which originated indexed investment, has famously said about mutual funds that investors “get what
+they don’t pay for.” The analog for hedge funds would be “no gain without at least equal pain”: investors will pay high fees regardless, so that in a
+good year they will share returns about equally with their managers. In a
+bad year, the client will bear all of the pain—negative returns, depressed
+further by the 2 percent management fee.
+
+18
+
+WHAT HEDGE FUNDS REALLY DO
+
+How Hedge Funds Are Evaluated (III): Risk
+Hedge funds’ rationale is not solely to maximize return but also to control risk—that’s the reason for the term “hedge.” Risk is operationalized
+as volatility of a portfolio’s returns. Figure 2.1 illustrates two portfolios
+of differing volatility: the Dow Jones Industrial Average (an index of 30
+stocks) versus a particular fund, over the period from March 2009 to July
+2012. Both earned similar cumulative returns (a cumulative 43 percent
+for the Dow and 33 percent for the fund, or 11.6 percent and 9.2 percent annually, respectively), but the fund did so with significantly less
+volatility: short-term spikes and dips in price were less frequent and less
+pronounced. This is what investors seek when they pay for hedge fund
+management: reduced volatility.
+The most common statistical measure of volatility is the standard
+deviation in per-period returns. Standard deviations are the square root
+of the sum of the squared deviations in per period prices versus the mean
+for all periods in the sample. If a given mean daily return was 0.1 percent
+and return on June 1 was 0.3 percent, its squared deviation (also known
+as “variance”) for the day would be .04% = 0.2% ^ 2. (The squaring is
+to correct for negative values—days when the portfolio shrank in value.)
+For the two portfolios discussed in the previous paragraph, the Dow’s
+standard deviation was 1.23 percent and the fund’s was 0.58 percent—
+the fund was less than half as volatile as the index.
+
+Figure 2.1 Price of fund versus benchmark, 2009 to 2012
+Source: Courtesy Lucena Research, LLC
+
+So You Want to Be a Hedge Fund Manager
+
+19
+
+Critics argue that standard deviation is a measure that only an
+academic could love, because it does not differentiate upward deviations—the kind we seek!—from downward deviations. “Drawdown”
+is a supplemental measure often used to address this. It is simply the
+maximum drop from peak to trough, measured as a percentage of the
+peak level. The Sortino ratio focuses on the downside, whereas the more
+commonly used Sharpe ratio is indifferent between upward and downward deviations.
+
+Sharpe Ratio: Combining Return and Risk
+The Capital Asset Pricing Model, discussed in Chapter 7, observes that
+across different asset classes it is virtually impossible to increase return
+without also increasing risk. This unavoidable trade-off between risk and
+return encourages us to consider measures that combine the two: one that
+we wish to maximize, and one we wish to minimize. Among different
+portfolios (or different managers), which one offers the lowest risk for a
+given return or the highest return for a given risk? This is analogous to
+“cost–benefit analysis” in public projects: Scarce resources mandate that
+we spend them on those that will produce the most benefit per dollar, or
+that will produce a given benefit most cheaply.
+Nobel Prize winner William Sharpe developed his namesake ratio to
+measure the efficiency of a portfolio in these terms. The Sharpe Ratio puts
+return—the thing we wish to maximize—in the numerator and risk—
+what we want to minimize, as measured by the standard deviation of the
+portfolio’s return—in the denominator. The only wrinkle is that “return”
+is excess return above the risk-free rate—usually the rate offered by shortterm Treasury bills. (This is because we can get that return with no risk at
+all.) The formula is therefore:
+Sharpe Ratio = (r[portfolio] – r [risk free])/standard deviation (portfolio)
+As an example, the long-term (since 1926) nominal return for the S&P
+500 has been close to 10 percent. During this period, the average risk-free
+rate has been about 2.5 percent. The S&P 500’s standard deviation has
+been about 15 percent. So its Sharpe Ratio over the past 80 years has been:
+(10% – 2.5%)/15% = 7.5%/15% = 0.5
+
+20
+
+WHAT HEDGE FUNDS REALLY DO
+
+High Sharpe ratios indicate high return per unit of risk, so 0.5 doesn’t
+look particularly appealing, but you’ll need to calculate this figure for
+some other assets or time periods to put it in perspective. (A value of 1.0
+can be thought of very loosely as being fairly compensated for risk—that
+is, each unit of risk generates an equal number of units of return. But a
+less loose interpretation of the Sharpe Ratio is simply that higher numbers are better than lower ones. It is important to note that Sharpe ratios
+at or above 1.0 are very uncommon.) For the two portfolios mentioned
+earlier, their Sharpe ratios were, respectively, .63 for the Dow and .94 for
+the fund. So on a risk-adjusted basis, the fund was superior by about half
+again over the Dow.
+Drawdown ratios and Sortino ratios measure a portfolio’s exposure
+to downdrafts and are especially relevant to hedge funds, whose raison
+d’etre is that they aspire to minimize falls in down markets, at the cost of
+reduced upside exposure in rising markets.

@@ -1,0 +1,911 @@
+7. MACHINE LEARNING AND BIG DATA TRADE
+EXECUTION SUPPORT
+Erin Stanton
+Global Head of Analytics Client Support, Virtu Financial
+
+Introduction
+As a result of recent advances in computing power, data
+abundance, and cloud services, asset managers are
+increasingly eager to use artificial intelligence (AI) and
+machine learning (ML) solutions to unearth meaningful
+insights from their data. However, despite their willingness and investment, many buy-side firms are struggling
+to establish an efficient and programmatic way to do
+ML-based analytics at scale. Why are these efforts failing
+to meet expectations?
+
+help inform a direction to take when unforeseeable events
+occur or ML-powered solutions that overcome limitations by
+using data gathered from other industries.
+In this chapter, five use cases detail real-life examples
+of ML’s application in the analytics and trading spaces,
+while noting both the effective combination of data and
+ML-based techniques used to enrich the decision-support
+processes and some of the current barriers facing buy-side
+firms as the technology matures. Here is a synopsis:
+•
+
+Use Case 1: Feature Importance. Designed to reduce
+the number of inputs a trader needs to consider
+when selecting the optimal trading strategy, feature
+importance calculates a score or rank for each input
+in a model. It is common for trading blotters to contain dozens, if not hundreds, of different security and
+market metrics, so using an ML-based approach can
+help traders focus on the most meaningful factors.
+
+•
+
+Use Cases 2 and 3: Transaction Cost Analysis (TCA).
+Portfolio managers and traders use TCA to learn from
+post-trade data and to improve future performance.
+In searching for trends about which strategies work,
+data are typically broken down by components, such
+as the size of the order or the market cap of the stock.
+In Use Cases 2 and 3, different ML-based approaches
+help extract additional insights from existing trade
+data to further enhance TCA analysis.
+
+•
+
+Use Case 4: Normalized and Unbiased Algo Trading.
+The automated, randomized testing performed by algo
+wheels helps traders find the best trading algorithm
+across a variety of brokers; it is like the A/B testing an
+e-commerce site would run to find the best product.
+Just like a retailer needs to ensure consistency of
+service for its customers, a data analyst must be
+aware that, aside from the testing component itself,
+all testers receive the same experience. In comparing algo wheel orders, a trader must account
+for the different order characteristics and market
+characteristics that each broker receives. Traditional
+market impact models are built statistically, but now,
+based on the size and scope of available data, it is
+possible to handicap brokers using ML-based models.
+
+•
+
+Use Case 5: Trading Strategy Recommendation
+Model. In Use Cases 1–4, traders had to select the
+optimal trading strategy. In Use Case 5, an ML-based
+
+Making Sense of the Data
+As asset managers push their competitive edge into the
+digital sphere, AI/ML solutions are growing out of the necessity for better and faster processes, calculated decisions,
+and data-driven insights. In the TRADE’s October 2020 article
+“Buy-Side Lags behind Sell-Side in Adoption of Machine
+Learning and Artificial Intelligence,” a Refinitiv study found
+that only 28% of buy-side firms were leveraging ML and AI
+(Smith 2020). This lag was recently confirmed by a Q1 2022
+Quant Strats survey of 100 hedge funds, asset managers,
+and investment banks across the United States and Canada
+that pegged regular use of machine learning in decision
+making at 22% (Finadium 2022). Anecdotally, a different picture is emerging, one fueled by significant buy-side interest
+and active ML skill building and development.
+Like the chicken and egg paradox, the buy side needs
+advanced technology and established efficient processes
+to capture and store data in sufficient granularity and
+requires ML expertise to help sift through the reams of
+structured and unstructured data. Though buy-side traders
+still consider sourcing liquidity their biggest challenge—one
+that statistical algorithms cannot easily solve—they recognize the advantages of ML-assisted approaches. Based on
+our observations, data delay and capture capabilities are
+improving and there is enthusiasm for putting existing data
+to work. ML’s abilities to uncover patterns in large datasets
+and surface correlations that humans cannot detect have
+buy-side traders and portfolio managers learning about and
+turning to open-source ML libraries, such as scikit-learn,
+tools similar to those used by traditional data scientists.
+In turn, these budding quasi-data scientists are developing
+such ML-based solutions as trigger algorithms that can
+
+trading strategy recommendation model is offered
+with an option to override should the recommendation
+not align with the trader’s human intuition and experience. Incidentally, when a trader chooses to override,
+this too is captured and can be analyzed to better
+enhance the model.
+
+Not All Data Are Created
+Equal
+Computers cannot make decisions as humans do. Human
+decisions are based on heuristics and cognitive biases
+against a broad field of attention to fully comprehend an
+event. The use of ML-based models depends heavily on
+data, and more specifically on granular data, as well as on
+the humans that build them. It is important to acknowledge that all ML analyses begin with data, but not all
+data are created equal. In addition to the variance in data
+quality, humans also add variability via the multiple decisions they make throughout the ML model construction
+process.
+Advanced models, such as neural networks, make such
+firms as Google successful, but they are like black boxes; it
+is hard to explain why they come up with the results they
+do. In trading, this approach is not optimal. In accordance
+with data science best practices, model builders should
+consider the following questions carefully during and after
+model construction. As a matter of transparency, their
+responses should also be included for every model submitted into production.
+•
+
+What data were included versus excluded, and why?
+
+•
+
+Assuming the data were available, what would
+improve the model?
+
+•
+
+What consistency checks and quality assurances
+were performed on the input datasets?
+
+•
+
+What features were included and excluded, and why?
+
+•
+
+What model was chosen, and why?
+
+Use Case 1: The Role of
+Feature Importance in TCA
+for Auto-Order Routing
+Each ML-based model created is an experiment since they
+fail as often as they succeed. Sometimes, one may be able
+to make a model operational, but the predictive accuracy
+is low or the model does not work owing to a technical
+problem. Nevertheless, ML techniques are evolving,
+reducing the amount of time spent on manual analysis.
+
+The feature importance approach is often where most buyside firms start their ML implementation journeys. When
+evaluating the performance of a portfolio, a portfolio manager
+typically performs an attribution analysis to determine which
+stocks contributed positively and negatively. The output information can be used to explain performance to an end client
+and/or to predict the viability of future investment decisions.
+The process of TCA is a data-driven way traders and portfolio
+managers can benefit by reviewing past results. Historically,
+TCA has primarily been observational, dissecting the changes
+in trading costs into factors, such as liquidity, volatility, and
+spread. Ideally, the trader may leverage the enhanced posttrade information when execution planning and when demonstrating or confirming execution quality/best execution.
+Although observational TCA is less statistical, it has proven
+to be an invaluable tool for bridging the consumer trust gap.
+Experience has made clear that it is essential to prove to
+your end audience how well their data and processes are
+understood before they can be convinced to adopt emerging
+technologies, such as AI and ML; TCA has been an effective
+catalyst toward ML-based analytics. Usually, once a client
+gains confidence in traditional TCA capabilities, their thinking
+leads them to ask whether anything is missing. For Harris
+Associates, their search led them to the feature importance
+approach for auto-routing execution, according to Jason
+Siegendorf, the firm’s head of trading analytics:
+Harris Associates had previously set up a workflow within our execution management system
+to auto-route or send a subset of trades directly
+to a pre-defined algorithmic trading strategy,
+bypassing the trading desk. This enabled cash
+flows and other low risk orders to be traded very
+consistently and without trader bias in broker
+selection and allowed our traders to focus on the
+orders that they can have the most impact on
+by sourcing liquidity and deciding on the optimal
+execution strategy. We know that order size is an
+important consideration when deciding if an order
+is auto-routing eligible, but we also wondered if
+there might be other contributing factors we were
+missing out on. Applying the feature importance
+function confirmed our intuition and helped spotlight other meaningful order characteristics we
+typically pay less attention to.1
+Typically, a human trader’s execution decision making
+involves the synthesis and weighing of dozens of inputs
+to make instant decisions regarding how to best execute
+an order. However, brain processing studies show that
+interactions are limited to three, sometimes four, inputs
+(Cowan 2001). The feature importance approach assists
+human traders by statistically confirming observational
+
+Jason Siegendorf, personal communication with author.
+
+TCA and human intuition by explaining subtle post-trade
+transaction cost patterns that may have otherwise gone
+undetected. It can also be used as a guide for pre-trade
+and auto-routing strategies.
+The recommended ML-based approach for this use case
+was a supervised random forest model2 (feature importance is built in natively); however, some buy-side clients
+may prefer the straightforward linear regression3 approach.
+Most traders are already familiar with the linear regression
+coefficients, which can be used to determine the direction
+and impact of a specific feature.
+
+•
+
+As inputs, labeled datasets are required for the supervised model. Following the selection of which labeled
+dataset(s) to use, it is necessary to further separate the
+data into training and testing subsets. Model builders
+must reserve a portion of the data for testing to determine how well the model predicts with data it has not
+previously interacted with, also known as generalization.
+•
+
+Step 1: Cleansing and Normalizing Data
+Any ML-based process must first identify the right data
+for the intended objective and determine whether any
+data normalization is required. Although not explored in
+this article, most of a model builder’s time is spent on the
+data—data cleansing, normalizing, and removing outliers
+and blank values—in addition to selecting and normalizing features before they can be passed into the model.
+
+•
+
+•
+
+■
+
+■
+
+■
+
+Have the drivers of trading costs changed over
+time? Ideally, the data should be broken down into
+time periods (e.g., month, quarter) and a separate
+model should be run for each. When completed, the
+model builder can compare the feature importance
+for each distinct period and determine whether
+drivers of costs have shifted or stayed the same.
+What are the cost drivers between two types of
+order flow? A trader may want to know the difference in transaction costs between single-stock
+versus program trading flow, so the data would
+be chunked into two respective datasets and
+modeled separately.
+Do transaction costs differ by fund type? To
+understand the cost impacts on small-cap cap
+growth and large-cap cap value, for instance,
+a trader would need to segment the data into
+relevant attribute datasets and then run a model
+for each attribute to pinpoint the most important
+drivers of the transaction costs.
+
+Step 5: Selecting the ML Model’s Library and Training
+a Supervised Model
+Among the open-source ML libraries, scikit-learn is
+a popular option, and since the use case involved
+predicting continuous trading costs rather than discrete ones, the RandomForestRegressor was chosen.
+Despite spending less time tweaking the model to
+improve accuracy, its predictive power remains a significant factor when analyzing the feature importance.
+
+Step 2: Chunking (Breaking Down) Data into Subsets
+for Easier Interpretation
+The following examples illustrate how chunking
+(breaking down) data into smaller subsets enhances
+understanding:
+
+Step 4: Selecting the Model’s Features
+When selecting the model’s inputs, avoid using a
+‘kitchen sink’ approach that includes every possible
+driver of transaction costs since this type of model
+does not perform well with highly correlated inputs.
+Several techniques exist to identify and remove the
+highly correlated features; it is a step in the process.
+
+The following steps taken in this use case can be implemented for any ML-based model.
+•
+
+Step 3: Data Labeling and Testing and Training
+Datasets
+
+•
+
+Step 6: Selecting a Feature Importance Approach
+Finally, the model builder must identify the most
+influential inputs for model prediction. Here are a few
+techniques:
+■
+
+■
+
+Default scikit-learn’s feature importance.
+Informally looks at how much each feature is
+used in each tree within the training forest.
+Exhibit 1 shows an example output from the
+scikit-learn feature importance module.
+•
+
+Pros: Single command to retrieve and fast
+
+•
+
+Cons: Can be biased to continuous features
+and high-cardinality categorical features; can
+only be run on the user’s training dataset
+
+Permutation feature importance. Shuffles a
+feature to see how much the model changes its
+prediction accuracy.
+•
+
+Pros: Can be run on both testing and training
+datasets
+
+•
+
+Cons: More computationally expensive and
+can overestimate the importance of correlated features
+
+A random forest grows multiple decision trees that are merged for more accurate predictions. The reasoning behind these models is that
+multiple uncorrelated models (i.e., individual decision trees) achieve much better performance as a group than individually.
+
+The simple linear regression forecasting method can be used to plot a trend line based on relationships between dependent and independent
+variables. In linear regression analysis, changes in a dependent variable are shown on the y-axis and changes in the explanatory variable are
+shown on the x-axis.
+
+Exhibit 1. Selecting Feature Importance
+Feature
+
+Weight
+0.2904 ± 0.0302
+
+tradeHorizon
+
+01733 ± 0.0100
+
+tradedValue
+
+Expected Results Sample
+
+0.1663 ± 0.0131
+
+historicalVolatility
+
+0.1217 ± 0.0137
+
+participationRate
+
+0.0560 ± 0.0111
+
+percentMDV
+
+The trading horizon is the most important factor influencing
+transaction costs, followed by traded value and historic volatility.
+Traders can use this to explain transaction costs post-trade and
+to inform them of the costs before placing an order in the market
+(pre-trade).
+
+0.0523 ± 0.0094
+
+spread
+
+0.0310 ± 0.0042
+
+marketCap
+
+0.0230 ± 0.0041
+
+sector
+
+0.0064 ± 0.0053
+
+securityType
+
+0.0022 ± 0.0013
+
+side
+
+0 ± 0.0000
+
+country
+
+Source: Virtu Analytics.
+
+■
+
+■
+
+Drop column feature importance. Manually
+drop one feature and examine model prediction
+accuracy.
+
+and semisupervised approaches are explored for populating
+tags where data are missing, and in the next use case, I
+examine these approaches for parsing free-form text.
+
+•
+
+Pros: Highly intuitive and accurate
+
+•
+
+Cons: Need to retrain the model each time,
+which can be resource-intensive
+
+The objective for this use case is to determine the type of
+commission rate when the data populating the commission-type tag are missing. The example is useful because it
+illustrates that model builders might have to get creative in
+how to use the data they have—solving the problem using
+a different tack.
+
+Feature importance computed with Shapley
+additive explanation (SHAP) values. Uses the
+SHAP values from game theory to estimate how
+each feature contributes to the prediction.
+•
+
+Pros: Provides more information through
+decision and dependence plots and impact
+directionality
+
+•
+
+Cons: Can be computationally expensive and
+requires a separate library
+
+Use Case 2: Semisupervised
+Learning to Cluster Similar
+Orders Where Clear Tags
+Are Missing
+The lack of clear and consistent data tags is one of the biggest hurdles ML must overcome. Currently, vast amounts of
+data are either untagged, in free-form text, or hard to integrate into the core dataset. In this use case, unsupervised
+
+ML-based techniques can be applied more broadly to identify segments of orders that are similarly structured across
+a range of partially or fully untagged attributes. Examples
+include the following:
+•
+
+In cases where the fund is not consistently tagged,
+details such as the number of stocks, average market
+cap, average momentum, and volatility can be used to
+extrapolate the style of investment strategy.
+
+•
+
+In cases where a trading desk discretionary tag is
+not consistently tagged, details around the order
+horizon, the type of algorithm used, the observed
+transaction costs, and the existence of a limit price
+can be used to extrapolate whether the buy-side
+trading desk had full discretion over the trading strategy of the order.
+
+In contrast with the first use case, Use Case 2 has only a
+small segment of clearly labeled data, so model builders
+
+Illustrative Example of Using Semisupervised Learning
+to Solve a Long-Running Data Tagging Issue
+Any time data are sourced from multiple systems,
+such as from multiple trading systems, data tagging
+can become an issue. An example is that while some
+trading platforms easily capture the type of commission rate paid with a trade, many do not. Buy-side
+traders want to be able to compare their commission
+rates to a large peer-based database to get a sense of
+how much relative commission they are paying.
+
+While not easily solvable with traditional observation-based analytics, semisupervised learning allows
+for the training of a model that can learn off clearly
+tagged examples and then predict the commission
+type for trades that do not have clear tagging. The
+buy-side trader can now compare her execution-only
+rate on an apples-to-apples basis to other investment
+managers.
+
+could choose to implement an unsupervised or semisupervised approach.4
+
+k-prototype clustering algorithm that combines both
+approaches into one (Huang 1998).
+
+As previously noted, ML model construction requires significant data preparation, and in Use Case 2, this involved the
+parsing of the client–broker code as an extrapolated model
+feature. While the broker tag itself differs from firm to firm,
+many broker destinations indicate the category of commission paid—for instance, brokerA_HT and brokerA_LT—data
+that were parsed and tagged as inputs for the model
+(Exhibit 2).
+
+When the model is complete, the model builder will have
+an output cluster number that, in this example (Exhibit 3),
+indicates whether the record represents an execution-only
+or a non-execution-only commission rate.
+The output cluster number can be used to report the execution-only commission rate; the use case goal was achieved.
+Nevertheless, good data science practices require model
+builders to review not only results but also the components
+of the model. In so doing, the modeler found that the dataset contained more labeled data than expected and re-ran
+the model, this time using a semisupervised approach
+(some labeled data and some unlabeled data).
+
+If an unsupervised clustering approach is taken, then a
+model needs to be selected that allows for both continuous
+numerical information, such as the average commission
+rate paid, and discrete categorical information, such as
+the country the client traded in. Using a k-means algorithm
+for the model’s purely numerical input and a k-modes
+algorithm for the model’s purely categorical input is recommended. The model builder may also opt for Zhexue Huang’s
+
+In the semisupervised model approach, a small set of data
+labels was used to train a supervised classification model,
+and once trained, the model could be used to predict the
+
+Exhibit 2. Broker Code Commission Parsed and Data Tagged
+Country
+(categorical)
+
+Turnover
+(numerical)
+
+Avg. Commission
+Rate (cps)
+(numerical)
+
+Broker
+Destination Code
+(categorical)
+
+Parsed Broker Code Tag
+(categorical)
+
+USA
+
+$1,000,000
+
+brokerA_LT
+
+Execution Only
+
+USA
+
+$2,000,000
+
+brokerA_HT
+
+Not Execution Only
+
+USA
+
+$1,000,000
+
+1.5
+
+brokerabcd
+
+Unknown
+
+Client ID
+(categorical)
+
+Source: Virtu Analytics.
+
+Semisupervised model learning involves a learning problem, as well as the algorithms created for the problem, that pertains to a small amount
+of labeled examples and numerous unlabeled examples from which the model learns and makes predictions on new examples.
+
+Exhibit 3. Model Cluster Output Number Using Parsed and Data Tagged
+Broker Commission Code
+Country
+(categorical)
+
+Turnover
+(numerical)
+
+Avg. Commission
+Rate (cps)
+(numerical)
+
+Broker Destination
+Code
+(categorical)
+
+Parsed Broker
+Code Tag
+(categorical)
+
+Model
+Output
+Cluster #
+
+USA
+
+$1,000,000
+
+brokerA_LT
+
+Execution Only
+
+USA
+
+$2,000,000
+
+brokerA_HT
+
+Not Execution Only
+
+USA
+
+$1,000,000
+
+1.5
+
+brokerabcd
+
+Unknown
+
+Client ID
+(categorical)
+
+Source: Virtu Analytics.
+
+unlabeled portion of the dataset. Even though the model
+builder ultimately opted to use the semisupervised method,
+the fully unsupervised and semisupervised approaches
+yielded similar average execution-only rates. In ML-based
+data analysis, reproducibility is an important aspect of
+confirming that techniques and approaches are working
+as intended.
+
+Use Case 3: Natural
+Language Processing to
+Parse Free-Form Text Fields
+into Data Tags
+Frequently, the parsing of inputs is from free-form text,
+such as a portfolio manager’s note to a buy-side trader
+that might include trading instructions and constraints
+that can impact a trade’s outcome. The following are some
+examples:
+•
+
+Target this order for the close
+
+•
+
+Part of a prog, trade cash neutral
+
+•
+
+Avoid impact, trade in line with volume
+
+A human reader can easily parse this text into a few simple
+tags; however, to programmatically extract information
+from free-form text fields, model builders must be familiar
+with natural language processing (NLP). The goal in Use
+Case 3 is to automate what a human can understand on a
+more systematic and consistent basis, as follows:
+•
+
+Close
+
+•
+
+Program trade
+
+•
+
+Go along
+
+Useful in post-trade learning, parsed tags can provide
+a data-driven perspective on how the portfolio manager’s instruction may have affected trading costs, and in
+
+execution planning, they can help the trader better understand what strategies work best based on the instructions
+received. NLP can be used against any free-form text field
+to help parse out additional information, even though our
+examination in this use case focuses on the portfolio
+manager’s instructions.
+Google’s Bidirectional Encoder Representations from
+Transformers (BERT) model was chosen because it has the
+capability of enhanced context understanding because
+of its process of evaluating text in both left-to-right and
+right-to-left directions. As with other models, BERT is open
+source and has the advantage of being pretrained on an
+enormous dataset. Since its initial launch, BERT has been
+adapted into sub-language versions, such as FinBERT,
+which handles financial documents, and LEGAL-BERT,
+which handles legal documents. The Virtu Analytics team
+performs most of its NLP work on an internal JupyterHub,
+where they have installed the necessary libraries and built
+their codebase; however, AWS SageMaker and Comprehend
+can be much quicker to set up. BERT also offers the advantage of being fine-tuned using a relatively small number of
+labeled examples, which, due to the size requirements, can
+be labeled by humans manually.
+At this point, BERT runs like any other supervised method,
+producing tagged predictions alongside probability.
+
+Use Case 4: Transaction
+Cost/Market Impact
+Prediction
+Leveraging market impact models, TCA determines
+the quality of the execution versus the expected cost.
+Currently, various transaction cost outcome prediction
+approaches are based on a combination of order characteristics, stock-level market data inputs, and a model
+calibration process that incorporates the results of realized
+trades.
+
+Exhibit 4. Precleansed Data Noise in a Typical Dataset
+Ticker
+
+Trade Time
+
+Shares
+
+Volatility
+
+Spread
+
+Observed Transaction
+Cost Outcome
+(implementation shortfall)
+
+AAPL
+
+3/1/2022 10:00 a.m.
+
+1,000
+
+9 bps
+
+10 bps
+
+5 bps
+
+AAPL
+
+3/1/2022 10:05 a.m.
+
+1,100
+
+8 bps
+
+9 bps
+
+20 bps
+
+Training
+Example
+
+Source: Virtu Analytics.
+
+Building an ML-based model off observed transaction costs
+can be challenging because of the data noise in a typical
+dataset and the lack of data labeling that hampers the
+parsing of text. Exhibit 4 illustrates the problem with data
+noise in the use case’s dataset.
+The training example in Exhibit 4 shows different observed
+transaction cost labels despite nearly identical inputs for
+ticker, trade time, shares, volatility, and spread, which can
+result in model confusion. Data analysts are advised that
+there may be other factors not captured in traditional TCA
+analysis that can affect a trade, which can similarly confuse a model. Attempts to estimate market impact using
+Virtu’s Global Peer database in its entirety were unsuccessful; however, when filtering off more homogeneous order
+flows, such as those from the algo wheel, useful estimates
+were obtained.
+An algo wheel provides automated, randomized routing to
+brokers according to user-defined allocations. When using
+an algo wheel, the trader selects the desired algo strategy
+and sends the order. Then, the algo wheel’s broker-allocation engine routes the order to a user-defined set of normalized algo strategies. Post-trade data are accumulated
+over time (on average, 300 orders per broker represent a
+useful dataset) to assess performance and guide future
+broker allocations.
+An ML-based market impact prediction model can be
+applied to cross-firm flows (giving insight into how brokers
+perform relative to each other) or to firm-specific flows to
+account for specific nuances in their proprietary investment processes. Enrico Cacciatore, senior quantitative
+trader and head of market structure and trading analytics
+at Voya Financial, explains why this capability matters:
+“Performance is what determines which brokers receive
+more flow on our algo wheel, and we need to account for
+differences in order difficulty across the flow that each of
+our counterparties receives. The Machine Learning Market
+Impact model we subscribe to allows us to handicap our
+brokers while at the same time giving us a sense of what
+transaction costs competing firms are achieving.”5
+
+Enrico Cacciatore, personal communication with author.
+
+The random forest model was chosen to accomplish the
+use case goal for market impact prediction. Several other
+model types were tested, including forest-related variations, such as gradient-boosted trees, but a simple random
+forest implementation performed the best in this case.
+We have found that random forest models provide high
+accuracy for our use cases and off our specific dataset,
+which includes both numeric and categorical data, and the
+results are also quite easy to explain and troubleshoot.
+Every model builder is advised to incorporate a third-party
+review as an integral step in the construction process.
+Non-model builders with knowledge of the dataset, ML, and
+subject matter should review the approach with the model
+builder(s)—with all participants being strongly encouraged
+to challenge the model based on the data, features, and
+model type selected.
+Use case in point, during our Transaction Cost Impact
+Algo Wheel Model peer review, someone raised a potential
+endogeneity issue related to a few features that included
+order horizons. Even though the order horizon greatly
+improved the model’s prediction accuracy, it is directly
+controlled by the broker. The purpose of a peer review is
+for users to have a common understanding of the model’s
+objective so they can assess whether it performed as
+intended. In this use case, the peer review team agreed
+that the broker had too much control over the order horizon
+and the feature was removed from the model.
+
+Use Case 5: Trading Strategy
+Recommendation
+In Use Cases 1–4, ML-based approaches provided datadriven trade information but left optimal trading strategy
+selection to the buy-side trader. In this use case, the
+review closes with an ML-based trading strategy recommendation model. Even though this example invokes
+greater risk—a suboptimal trading strategy can result in
+a higher-cost trade—the reader should now have a better
+understanding of ML-based alternative approaches to
+
+segment order flow when data tags are unclear, how to
+parse free-form text from an ML perspective, and how
+market impact estimates can be constructed solely from
+observed trades.
+This use case’s data represented all algorithmic trades
+captured across all brokers from Virtu’s execution management system. Leveraging the model at a firm-specific level
+is possible; however, data requirements are more stringent
+as accuracy is emphasized when a recommendation is
+being submitted.
+The feature importance approach was applied to identify the key data inputs for the model, which include the
+following:
+•
+
+Order attributes, such as the ticker, side, sector, size,
+and market cap
+
+•
+
+Stock clustering and NLP techniques, used to fill in
+the gaps, such as whether a limit price was set and
+whether an urgency setting was used for the algo
+trade
+
+•
+
+Real-time market condition metrics, such as relative
+volume, volatility, and spread compared with historical
+distributions
+
+Random forest models were then trained using historical
+data for each of the algorithm trading styles available to a
+
+Effects of Training
+with Biased Data
+While not discussed previously, if the
+datasets used to train machine learning models contain biased data, then
+the model predictions will most likely
+be biased as well. If most of the training
+data for the volume-weighted average
+price (VWAP) strategy represented largecap stocks, which inherently have lower
+transaction costs, this strategy could look
+incorrectly cheap when compared to other
+models that have a more representative
+training sample. There are several ways
+to deal with bias, and it is an important
+consideration for any model that is used
+directly in the trading space.
+
+buy-side trader, including implementation shortfall, VWAP,
+liquidity seeking, and dark.
+Finally, the buy-side trader receives a prediction of the
+transaction cost outcome based on all available algorithms.
+Though it is possible to display only the winning, low-cost
+strategy, it is also useful to show the cost and variability of
+outputs across all strategies as part of the trader’s implementation display. Separately, some trades will be marked
+as not-low-touch-eligible because of the high strategy estimates provided across all models.
+
+Conclusion
+Although the use cases presented in this chapter are successful, many experiments do not perform as expected. To
+provide some balance, an example of a failed experiment
+would be the effort to build a stock clustering model that
+could inform a trading strategy. Though the experiment was
+successful in clustering stocks by characteristics, it could
+not tie them to a model that consistently informed how to
+trade them.
+ML-based model building can sometimes be creative,
+should be collaborative, and is always iterative.
+
+References
+Cowan, Nelson. 2001. “The Magical Number 4 in Short-Term
+Memory: A Reconsideration of Mental Storage Capacity.”
+Behavioral and Brain Sciences 24 (1): 87–114. www.
+researchgate.net/publication/11830840_The_Magical_
+Number_4_in_Short-Term_Memory_A_Reconsideration_of_
+Mental_Storage_Capacity.
+Finadium. 2022. “Quant Strats Survey Shows ML Adoption
+Lagging, Third Party Spend Drops, Quantum Computing
+Tops Future Tech” (17 March). https://finadium.com/quantstrats-survey-shows-ml-adoption-lagging-third-partyspend-drops-quantum-computing-tops-future-tech.
+Huang, Zhexue. 1998. “Extensions to the k-Means
+Algorithm for Clustering Large Data Sets with Categorical
+Values.” Data Mining and Knowledge Discovery 2:
+283–304. http://citeseerx.ist.psu.edu/viewdoc/
+download?doi=10.1.1.15.4028&rep=rep1&type=pdf.
+Smith, Annabel. 2020. “Buy-Side Lags behind Sell-Side in
+Adoption of Machine Learning and Artificial Intelligence.”
+The TRADE (27 October). www.thetradenews.com/buy-sidelags-behind-sell-side-in-adoption-of-machine-learningand-artificial-intelligence/.

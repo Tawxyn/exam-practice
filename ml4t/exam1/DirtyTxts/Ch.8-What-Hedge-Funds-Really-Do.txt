@@ -1,0 +1,89 @@
+CHAPTER 8
+
+The Efficient Market
+Hypothesis (EMH)—Its
+Three Versions
+Another extremely influential element of finance theory is the idea that
+most asset markets are highly efficient. In this context, efficiency means
+that information that can affect prices travels quickly throughout a market and that their prices are affected accordingly. Recall that arbitrage
+opportunities exist when a buyer and a seller have differing views of the
+true price of a stock—perhaps because of differences in information available. The more efficient a market, the more that relevant information
+is equally available to all market participants. Many disclosure requirements in law and regulation aim to improve the efficiency of the market.
+Likewise, prohibitions on insider trading are intended to make it difficult for those company insiders to exploit their information advantage.
+(Most criminal cases involving hedge fund personnel have been related to
+insider trading.)
+
+What Makes Markets Efficient?
+An indirect measure of market efficiency is the speed with which a stock’s
+price adjusts to company-relevant information. Why would this occur?
+Let’s consider a few examples:
+1. Say, for example, that a mining company reports that the results of
+test borings of a new mine yielded less gold per ton than expected.
+Interested investors might conclude that the company’s profits
+would be depressed because the cost to generate an ounce of gold in
+the future will be higher than expected.
+
+56
+
+WHAT HEDGE FUNDS REALLY DO
+
+2. Lower than expected earnings could have a double effect: It will
+reduce the company’s stock price for a given price to earnings (P/E)
+ratio; and the reduced prospects might lower the stock’s P/E. Investors who follow the stock closely will rush to unload their shares
+before (they hope) others realize that the stock has become less valuable. In this way, investor self-interest will cause new information to
+be reflected in stock prices quite quickly.
+Asset markets undoubtedly vary in their efficiency. Those with very high
+trading volumes and significant transparency (i.e., wide disclosure of relevant information), such as the NYSE, are at the high end of the efficiency
+spectrum. Illiquid, niche markets with poor information transmission,
+such as a “frontier” stock market in an emerging economy, will be much
+less efficient.
+Market efficiency is crucial to determining whether active investment
+management, such as by hedge funds, is cost-effective. In highly efficient
+markets, several investment managers may be competing to profit from
+arbitrage opportunities that those opportunities are “arbitraged away”
+almost instantaneously.
+
+Three Versions of the EMH
+Eugene Fama first postulated the EMH in the mid-1960s. As elaborated by
+others, it has now been posed in three different, increasingly rigorous versions:
+1. Weak form: Future asset prices cannot be predicted using historical
+price and volume data. Such information is widely available from
+the business press and on investing websites such as Google Finance
+or Yahoo Finance.
+2. Semi-strong form: Asset prices adjust immediately to all publicly
+available information, including that which reflects the company’s
+fundamentals like financial disclosures.
+3. Strong form: Asset prices adjust immediately to reflect all relevant
+information, including that available to insiders.
+Which form of the EMH best approximates real conditions will fundamentally affect which investing strategies can succeed.
+
+	The Efficient Market Hypothesis (EMH)—Its Three Versions
+
+57
+
+If the weak form of the EMH is correct, technical analysis (using only
+historical price and volume data) cannot succeed, but investors who can
+develop other relevant information (such as independent fundamental estimates of intrinsic value) can have and exploit an information advantage.
+If the semi-strong form is correct, technical analysis and fundamental
+analysis cannot work: Value investors are wasting their time—value arbitrage
+opportunities don’t exist, because they have been already arbitraged away.
+If the strong form is correct, even those who trade on inside information cannot succeed: They are risking jail to little gain.
+
+Debates over the EMH
+Most academic studies have supported the validity of some version of the
+EMH. A good layman’s summary is Burton Malkiel’s A Random Walk
+Down Wall Street. As noted earlier, it is likely that different versions apply
+in different markets. The strongest versions apply in the largest, most
+transparent, most liquid markets such as for U.S. large cap stocks. In
+these markets, numerous studies have demonstrated that very few managers persistently outperform market indexes—even fewer than would be
+expected by mere chance.
+A casual reader might conclude that if the EMH applies, then hedge
+funds or any active management approach could not succeed, and that
+they incur expenses with no sustained benefit. As noted earlier, this supposition seems reasonable for most managers, based on extensive empirical research by economic and finance academics. But such reasoning may
+be overdone. Active managers may be precisely the agents who make a
+market efficient! They have incentive to identify any possible opportunity to arbitrage. Because their competitors seek similar opportunities,
+they have reason to act on those they identify as quickly as possible. So
+hedge funds may contribute to the existence of efficient markets, rather
+than being made unnecessary by them. While high hedge fund fees may
+offer dubious value to clients, they may provide a more general service by
+incentivizing greater market efficiency.

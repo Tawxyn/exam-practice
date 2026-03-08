@@ -1,0 +1,293 @@
+CHAPTER 5
+
+Introduction to Company
+Valuation
+A successful investment indicates that the buyer had a more accurate view
+of the asset’s true value than the seller had (otherwise, the seller would
+have demanded a higher price). The reverse is true for failed investments.
+This implies that different market participants have different views of the
+value of an asset, like a company’s stock. (Remember that a share of company stock is simply partial ownership of the entire company.) In fact, it
+is this mixture of views that enables a market to work.
+This suggests that investing opportunities appear when an investor
+spots an asset whose current price diverges from what he believes is its true
+value. Financial markets may be quite efficient—that is, they may rapidly
+reflect most relevant information that affect an asset’s value in its current
+market price—but hedge funds and other investors seek to make money
+from these occasional differences, or inefficiencies. (Market efficiency or
+inefficiency will be treated in a later chapter). If the current price is below
+estimated true value, it presents an opportunity to go long on that asset; if
+the asset is presently overpriced, it presents a short opportunity.
+Successful investors develop and apply techniques that independently
+value companies to discover discrepancies between price and value. The
+first popular book on “value investing,” Benjamin Graham’s The Intelligent Investor (often cited by Graham protégé Warren Buffett as the
+definitive work on this investing style), argued that investors should seek
+a margin of safety—that is, they should only buy stocks whose price was
+well below the investor’s estimate of their true value. This has been called
+“buying dollar bills for fifty cents.” But value investing is only possible if
+the investor is confident of his or her own personal estimate of true value.
+This chapter is an introduction to valuation techniques.
+
+The methods that follow are often called fundamental analysis, because
+they are based on the fundamentals of a company’s business operations
+and finances. These methods are distinct from technical analysis, which
+attempts to predict stock prices based on past price behavior. Technical
+analysis also is known more descriptively as “charting.”
+We will cover three key methods for estimating the value of a company using fundamental factors:
+• Book value: An estimate based on the sum of assets and liabilities of the company
+• Intrinsic value: An estimate based on future dividends to be
+paid by the company
+• Earnings growth: Projection of expanded earnings into the
+future
+
+Asset-Based Valuation: Book Value
+Companies are required to periodically report their assets and their liabilities, with the difference between the two constituting the firm’s net worth.
+Assets are productive items the firm owns, which can be tangible assets
+such as factories, or intangible assets such as patents. Assets are categorized according to how quickly they can be converted into cash. Liabilities
+are financial obligations the firm has undertaken: debts, commitments
+to pay for raw materials, employment contracts, and so forth; they are
+likewise categorized by their duration into the future. If the firm closed
+its doors tomorrow, its net worth is the best available approximation of
+what its owners would be left with after selling off its assets and paying off
+its obligations. On the balance sheet this is shown as stockholder’s equity
+or book value: it is the value of the firm as captured by accountants on its
+books.
+Book value can diverge from market value—the value of the firm as
+appraised by market prices, also known as market capitalization—for several reasons. First, accounting rules are biased to be conservative, so even
+if an asset has risen in value since the firm originally purchased it—say,
+a piece of real estate in a growing city—it will be carried on the balance
+sheet at its original price, less accumulated depreciation. This deflates
+
+Introduction to Company Valuation
+
+book value relative to the firm’s intrinsic value. For these reasons, the
+reported book value is usually below the price the company is worth if
+it were actually liquidated. However, if the firm is forced to sell an asset
+involuntarily—such as in bankruptcy—it may receive far less than what it
+had paid, especially if the sale is forced by bad economic conditions that
+depress the price of all assets. So, in a recession, book value may overstate
+true value.
+When using book value for investing purposes, an asset-based assessment would compare a company’s book value—possibly adjusted if the
+investor believes it is inflated or depressed by special conditions—to its
+market capitalization. On a per-share basis, the investor would compute
+the price-to-book ratio:
+Price-to-book ratio = share price/book value per share
+Mature companies with few growth prospects (discussed in further
+text), or troubled companies that may face liquidation, may have a share
+price below book value, or little above it. That is, a price-to-book ratio of
+less than 1.0 or barely above 1.0. Conservative value–style investors are
+attracted when they can buy a share for less than its book value; this is
+not uncommon if the company, its industry, or the entire economy is in
+distress.
+
+Intrinsic Value: Dividend-Based Valuation
+Companies exist to use assets in such a way that their value grows over
+time. This is one of the reasons why book value may underestimate the
+company’s true value: Book value does not reflect future prospects. Capturing this element of value requires us to examine one of the fundamental concepts in finance: the time value of money.
+Time Value of Money
+Assets are more valuable if they generate cash into the future. If I buy that
+asset from you, cash flows you received while you owned it will now be
+paid to me. But I will probably pay you a single lump sum to gain ownership, a sum that is likely far more than one year of cash flows. So the price
+we negotiate must somehow convert a stream of future cash flows—that
+
+the seller relinquishes and the buyer expects—into a lump sum. This process is called discounting to reflect the time value of money.
+Money’s time value can be illustrated with a simple example. Say your
+friend is scheduled to receive a sum of money in one year—for instance,
+when his deceased grandfather’s estate is settled. He can document with
+certainty that he will receive $10,000 one year from today. But he needs
+money now. He offers to sell you his right to that bequest. What would
+you pay for it?
+Certainly less than $10,000. Your first reaction is probably that you
+can’t be certain that something won’t go wrong and deny you the transferred bequest, so you need to lower your price to reflect that uncertainty.
+That’s an absolutely correct reaction; but for simplicity’s sake, let’s assume
+that there is absolutely no doubt that the $10,000 will be forthcoming in
+1 year. Is this asset—your purchased claim on the grandfather’s estate—
+worth $10,000 to you?
+Again, almost certainly not. Why? Because whatever sum you spend
+to buy this claim can’t be used for some other productive purpose—to
+deposit in a bank, to start a business, or to buy shares in an existing business. If you buy your friend’s promissory note due in 1 year, you lose the
+use of your money for 1 year. The lost opportunity—which economists
+call, literally, “opportunity cost”—is the return that you’ve sacrificed by
+failing to make the best alternative investment. Let’s say that the alternative
+is to buy shares in the S&P 500 ETF, SPY, which you expect will return
+10 percent over the next year. Then your friend’s note is only attractive if
+its expected return is at least as good.
+We “charge” the proposed investment—your friend’s promissory
+note, $10,000 payable in 1 year—for the opportunity that you are sacrificing to invest in SPY and earn 10 percent. We discount the expected
+$10,000 payout in 1 year by 10 percent per year to express that future
+value as a value in the present or present value. Specifically,
+Present value = future value/(1 + discount rate) ^ (number of years till
+payment)
+PV = FV/(1 + DR) ^ I
+PV = $10,000/(1.1) ^ 1
+PV = $9,090.91
+
+Where I is the number of years until payment. So you should not pay
+more than roughly $9,091 for the promissory note. The discount rate,
+shown as DR, is the rate of return the investor could receive from investing in the best alternative asset. We used the example of the stock market,
+but others often use a less risky investment such as the interest rate on
+Treasury bonds. The discount rate chosen should reflect the lost opportunity associated with most likely alternative investment. We charge that
+opportunity cost to this investment by discounting it to reflect the time
+value of money we are sacrificing by investing here.
+Assets can offer either a single payment, like the aforementioned
+promissory note, or a stream of payments. Stocks differ from bonds or
+promissory notes in that they may provide a stream of payments in the
+form of dividends. These dividends will be paid on a regular basis into
+the infinite future as long as the company’s board elects to maintain the
+dividend. Note, however, that not all companies pay dividends, and, of
+course, sometimes companies suspend dividends or fail completely.
+Accordingly, assessing the value of a stock based on those future dividend payments is a bit more complex. The present value of all the future
+dividend payments is equivalent to the present value of each payment,
+added together.
+To explain this, let’s go back to the example of promissory notes: If
+you bought two promissory notes—one payable in 1 year, and the other
+offering $10,000 payable in 2 years—the value of that portfolio would be
+the sum of the present values of each note:
+PV note 1 (due in 1 year): $10,000/(1.1) ^ 1 = $9,090.91
+PV note 2 (due in 2 years): $10,000/(1.1) ^ 2 = $8,264.46
+Portfolio value (sum of each note’s PV) = $17,355.37
+The intrinsic value of any asset is simply the present value of all future
+returns. This is true whether the returns are a single payment or multiple
+payments, uniform in amount (as in this example), or nonuniform.
+The math of discounting to compute the present value is straightforward if the future payments are constant. A challenge is in estimating
+the future value cash flows, which is outside this book’s scope. So we
+will illustrate valuing a share of stock with simple constant cash flows:
+dividends.
+
+The Dividend Discount Model
+Say that you own a share in an electric utility company, Divco, which
+pays $1 per year in dividends. Also assume that your best alternative use
+of your capital offered a return of 8 percent per year. Then the value of the
+stream of dividends over 10 years from Divco would be as follows:
+Year 1:
+Year 2:
+Year 3:
+.
+.
+.
+Year 10:
+
+$1/(1.08) ^ 1 = $0.9259
+$1/(1.08) ^ 2 = $0.8573
+$1/(1.08) ^ 3 = $.07938
+
+$1/(1.08) ^ 10 = $0.4632
+
+The total value of this 10-year stream of dividends is simply the sum of these
+ten present values, or $6.71. If the only returns to shareholders were this
+constant stream of dividends for 10 years, a share of Divco stock would have
+an intrinsic value of $6.71. If it traded in the market for $7.00, it would be
+overpriced. If it sold for $5.00 a share, it would be a bargain.
+Note that each successive year’s dividend is worth less in the present,
+because each dividend is paid farther in the future. By year 10, one dollar in dividends a decade hence is worth less than half as much today.
+However, dividends don’t usually end after 10 years. What if we extended
+payments farther in the future? For example, a $1.00 dividend payable
+50 years from now would today be worth as follows:
+Year 50:
+$1/(1.08) ^ 50 = $0.0213
+… or barely 1/50th of its future value of $1.
+
+Long-Term Ownership of an Asset
+You can see that if you extend the time horizon far enough into the future,
+the present value of a dividend then is effectively zero today. So an infinite
+time horizon won’t generate an infinite present value, since beyond some
+time horizon the present value of future cash flows will be as close to zero
+as to be negligible. Still those future payments do have value, so how can
+we compute it?
+
+Ownership of an income-producing asset means, in principle, that
+you will receive payments in perpetuity. (This applies, for example, to any
+stock: as long as the company survives, its owners receive its earnings.)
+Consider our earlier equation for a single payment I years in the future:
+PV = FV/(1 + DR) ^ I
+We’re looking for the sum of all these future values, so we can take advantage of the solution to the infinite sum
+∞
+
+∑ n = n − 1 where | n | > 1
+i =1
+
+i
+
+And substitute (1 + DR) for n in the equation to get:
+PV = FV/((1 + DR) – 1)
+PV = FV/DR
+The value of a perpetuity—that is, a stream of equal payments forever—
+is simply the payment (we will use D for dividend now instead of FV)
+divided by the discount rate. Thus, the PV of perpetuity of payments of
+D each year is D/DR. In the Divco example, the present value of a share
+of Divco stock paying $1.00 in dividends each year forever (assuming an
+8 percent DR) is
+PV (Divco share) = $1.00/.08 = $12.50
+So more than half of the share’s total value will be realized within the first
+10 years,
+since PV (10 years) = $6.71, while
+PV (forever) = $12.50.
+Said differently, all of the dividends paid from years 11 to infinity are
+worth $5.79.
+
+Growth-Based Valuations
+Fast-growing assets, like small growth companies, are valued based on
+the projections of (fast growing) future earnings. The methods used are
+
+i­dentical to those mentioned in the previous sections. The difference is
+that each year’s earnings are projected to be higher than the previous
+years. The company’s value is the sum of each year’s discounted cashflow
+(i.e., present value). In theory, this could be infinity, but, in practice, for
+any reasonable discount rate, cash flows many years in the future will be
+discounted essentially to zero. This is why a perpetual cash flow still has a
+finite present value.
+Of course, valuations will depend critically on the assumed rate of
+growth in earnings. Small differences in growth assumptions can lead to
+big disparities in valuations.
+
+Integrating Asset-Based and Cash
+Flow–Based Valuations
+The mathematics is the easy part; the challenging part is all the judgments
+that must be made to create the inputs and assumptions used in these
+calculations.
+Usually asset-based estimates produce lower valuations than do those
+based on long-term discounted cash flows. This is because asset-based valuations are based mainly on past prices paid for assets, not the—hopefully—
+enhanced value they have achieved from their use (hopefully superior) by
+the company. But even book value can overestimate company value if the
+conditions of sale are not conducive to getting a good price—like a forced
+liquidation, or a bad recession. Asset-based calculations are often viewed as
+“lower bounds,” but even they may need to be adjusted downward in distress
+sale circumstances. Analysts commonly discount book value by 30 percent
+or 50 percent to represent what they believe is the true “worst case.”
+Cash flow–based estimates are slightly more involved, since it may be
+necessary to compute, and then discount, future cash flow for each of a
+number of years. Clearly, the farther in the future you project, the more
+conjectural your projection will be, since the number of intervening surprises can only increase. You can be reassured that forecasting errors have
+declining importance farther in the future, because their present values
+will be more heavily discounted.
+An asset-based valuation implicitly ignores future earnings; while a
+cash flow–based valuation focuses exclusively on those future earnings.
+Adding the two together can produce the most complete valuation.
+
+Analysts commonly produce a range of valuations. Different methods (such as asset- vs. cash flow–based methods) produce different values, as just noted. Different assumptions will likewise cause variations
+in values.
+
+What If?
+As an example, say, Divco is building a new power plant in an undeveloped area expected to experience rapid population growth (and
+therefore growth in demand for electric power). The investor might
+develop several scenarios, reflecting different hypothetical growth
+rates (and therefore rates of growth in power sales). The “base case”
+reflects the expected future—say, 4 percent annual population growth
+for 10 years, tapering to 1 percent per year thereafter. But the investor
+would be prudent to consider an alternative, more pessimistic scenario, of, say, 2 percent for 10 years and 0 percent annually thereafter.
+The optimistic scenario might produce a value several times the pessimistic scenario.
+For asset-based valuations, an optimistic scenario might assume that
+each asset will be sold for full book value, and a pessimistic scenario might
+assume, say, 50 percent of book.
+So with several possible valuations—different methods, and different
+scenarios—which one is right? There is no way to know until the future
+unfolds. Investors commonly consider a range of value estimates. If they
+are aggressive, they will emphasize the high end; if conservative, the low
+end. Graham argued for a margin of safety—emphasizing the low end, or
+possibly something even lower.
+In the interests of simplicity, many Wall Street analysts produce a
+single, point-estimate “target price,” but that is really substituting precision for accuracy. All of us have been “mugged by reality”—surprised by
+developments, usually on the downside, that made a mockery of optimistic valuations. (Dramatic examples of this were behind the 2008 meltdown of most financial institutions.) Your authors believe it is better to be
+roughly right than precisely wrong. Further, we agree with Graham about
+the importance of a margin of safety. While we can rarely buy dollar bills
+for 50 cents, we generally aren’t tempted unless dollars are priced below
+80 cents.

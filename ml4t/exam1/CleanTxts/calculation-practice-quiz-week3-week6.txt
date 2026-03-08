@@ -1,0 +1,178 @@
+ML4T Exam Practice - Calculation-Focused Multi-Select Quiz (With Explanations)
+Source scope: CleanTxts/Week3 to CleanTxts/Week6
+
+Instructions:
+- Each question has 5 answer choices.
+- Multi-select: one or more choices may be correct.
+- Correct/Incorrect labels are provided.
+- Each option includes a short math-based explanation.
+
+==================================================
+Week 3 - chapter2.2.txt
+==================================================
+
+Q1) Which statements correctly represent Mean Squared Error (MSE) in regression?
+A. MSE is the average of squared residuals: (1/n) * sum((y_i - y_hat_i)^2). [Correct]
+Why: This is the exact formula from regression loss definition.
+B. MSE is always larger on training data than test data. [Incorrect]
+Why: Usually training MSE <= test MSE because models are fit on training data.
+C. Lower MSE means predictions are, on average, closer to true observed values. [Correct]
+Why: Smaller squared errors imply smaller average distance in squared units.
+D. Squaring errors makes large errors count more heavily. [Correct]
+Why: If error doubles, squared term becomes 4x larger.
+E. MSE ignores the difference between predicted and true values. [Incorrect]
+Why: MSE is built directly from (y_i - y_hat_i), so it explicitly uses that gap.
+
+Q2) Select the correct statements about training MSE vs test MSE.
+A. Minimizing training MSE always guarantees minimum test MSE. [Incorrect]
+Why: Overfitting can reduce training error while increasing test error.
+B. Test MSE is the key target for generalization to unseen data. [Correct]
+Why: Test metric estimates future prediction performance.
+C. Overly flexible models can get low training MSE but worse test MSE. [Correct]
+Why: Classic bias-variance behavior; variance rises with flexibility.
+D. Training MSE is computed on unseen data only. [Incorrect]
+Why: Training MSE is computed on the training sample itself.
+E. The chapter emphasizes prediction on future/unseen observations. [Correct]
+Why: It explicitly contrasts fitting past data vs predicting new observations.
+
+==================================================
+Week 3 - chapter3.1.txt
+==================================================
+
+Q3) If a simple linear regression model has R^2 = 0.61, which choices are correct?
+A. About 61% of response variability is explained by the predictor(s) in that model. [Correct]
+Why: R^2 = explained variance fraction = 0.61 = 61%.
+B. About 39% of variability remains unexplained by the model. [Correct]
+Why: Unexplained share is 1 - R^2 = 1 - 0.61 = 0.39.
+C. R^2 must be negative in valid linear regression output. [Incorrect]
+Why: Standard OLS with intercept gives R^2 in [0,1].
+D. R^2 close to 1 indicates stronger explained variability. [Correct]
+Why: From R^2 = (TSS - RSS)/TSS, lower RSS pushes R^2 upward.
+E. R^2 = 0.61 means exactly 61% prediction accuracy on every observation. [Incorrect]
+Why: R^2 is variance-level fit, not per-observation classification accuracy.
+
+Q4) In simple linear regression, which statements are correct regarding correlation r and R^2?
+A. In simple linear regression, R^2 = r^2. [Correct]
+Why: For one predictor, coefficient of determination equals squared sample correlation.
+B. Correlation is unrelated to linear association. [Incorrect]
+Why: Correlation directly measures linear association strength and direction.
+C. If r = -0.8, then R^2 = 0.64. [Correct]
+Why: (-0.8)^2 = 0.64.
+D. A higher |r| generally implies stronger linear association. [Correct]
+Why: |r| close to 1 indicates tighter linear fit.
+E. R^2 can exceed 1 in simple linear regression. [Incorrect]
+Why: In standard setting, R^2 is bounded by 0 and 1.
+
+==================================================
+Week 4 - chapter8.1-8.2.txt
+==================================================
+
+Q5) In the regression tree example, terminal node prediction uses the mean response of training points in that leaf. Which are correct?
+A. Leaf prediction is based on averaging response values within that region. [Correct]
+Why: y_hat_Rj = mean(y_i in region Rj).
+B. The tree fitting objective is connected to minimizing RSS across regions. [Correct]
+Why: Objective shown as sum over regions of (y_i - y_hat_Rj)^2.
+C. Recursive binary splitting greedily chooses splits that reduce RSS at each step. [Correct]
+Why: It chooses (feature, cut) with largest local RSS reduction.
+D. Regression tree leaf prediction uses the median by default in this chapter. [Incorrect]
+Why: Chapter’s regression tree prediction is mean, not median.
+E. The chapter states recursive splitting never risks overfitting. [Incorrect]
+Why: It explicitly warns large trees can overfit and motivates pruning.
+
+Q6) In the Hitters example, one leaf has mean log salary 5.107. Which are correct?
+A. Predicted salary is 1000 * exp(5.107), approximately $165,174. [Correct]
+Why: exp(5.107) ≈ 165.174, then multiply by 1000 dollars.
+B. The transformation from log salary back to salary uses exponentiation. [Correct]
+Why: If log(Salary_thousands)=m, then Salary_thousands=exp(m).
+C. 1000 * exp(5.107) is approximately $16,517. [Incorrect]
+Why: Correct magnitude is about $165,174, off by factor ~10.
+D. The prediction unit after back-transforming is dollars (not log-dollars). [Correct]
+Why: Exponentiation returns original scale, then *1000 gives dollars.
+E. The chapter says this node corresponds to players with Years >= 4.5 only. [Incorrect]
+Why: This specific node corresponds to Years < 4.5 in the shown split.
+
+==================================================
+Week 5 - chapter2-what-hedge-funds-really-do.txt
+==================================================
+
+Q7) Using Sharpe Ratio = (r_portfolio - r_riskfree) / sigma_portfolio, if r_portfolio = 10%, r_riskfree = 2.5%, sigma = 15%, select correct choices.
+A. Excess return is 7.5%. [Correct]
+Why: 10% - 2.5% = 7.5%.
+B. Sharpe Ratio is 0.5. [Correct]
+Why: 7.5% / 15% = 0.5.
+C. Sharpe Ratio is 1.5. [Incorrect]
+Why: Would require 22.5% excess return at 15% volatility.
+D. Increasing volatility with same excess return lowers Sharpe Ratio. [Correct]
+Why: Denominator up, numerator fixed => ratio decreases.
+E. If risk-free rate rises while other values stay fixed, Sharpe Ratio rises. [Incorrect]
+Why: Higher r_f lowers excess return (numerator), reducing Sharpe.
+
+Q8) Which statements are correct based on chapter discussion of Sharpe/Sortino/Drawdown?
+A. Sharpe uses standard deviation in the denominator. [Correct]
+Why: Formula denominator is portfolio standard deviation.
+B. Sortino focuses on downside risk rather than both upside/downside variability equally. [Correct]
+Why: Sortino penalizes downside deviation specifically.
+C. Drawdown is described as max drop from peak to trough (percent of peak). [Correct]
+Why: Chapter definition uses peak-to-trough percentage decline.
+D. Sharpe ignores the risk-free rate entirely. [Incorrect]
+Why: Sharpe numerator is excess return r_p - r_f.
+E. The chapter argues higher Sharpe is generally better than lower Sharpe. [Correct]
+Why: It interprets Sharpe as return per unit risk.
+
+==================================================
+Week 6 - chapter5-what-hedge-funds-really-do.txt
+==================================================
+
+Q9) For discount rate 10%, choose the correct present value calculations from the chapter example.
+A. PV of $10,000 due in 1 year is $9,090.91. [Correct]
+Why: 10000/(1.1)^1 = 9090.91.
+B. PV of $10,000 due in 2 years is $8,264.46. [Correct]
+Why: 10000/(1.1)^2 = 8264.46.
+C. Sum of those two PVs is $17,355.37. [Correct]
+Why: 9090.91 + 8264.46 = 17355.37.
+D. PV of $10,000 in 2 years at 10% is $10,000/(1.1). [Incorrect]
+Why: Two-year discounting requires (1.1)^2 in denominator.
+E. Higher discount rate increases present value for the same future cash flow. [Incorrect]
+Why: PV = FV/(1+r)^n falls as r increases.
+
+Q10) In the dividend discount illustration ($1 annual dividend, 8% discount rate), which are correct?
+A. Year-1 PV is $1/(1.08)^1 = 0.9259. [Correct]
+Why: Direct discounting for one year at 8%.
+B. Year-10 PV is approximately 0.4632. [Correct]
+Why: 1/(1.08)^10 ≈ 0.4632.
+C. 10-year sum of PVs is approximately 6.71. [Correct]
+Why: Geometric discounted sum across years 1 to 10.
+D. Extending horizon far enough makes far-future PV contributions negligible. [Correct]
+Why: Discount factor grows exponentially, so PV terms approach 0.
+E. Year-50 PV of $1 at 8% is greater than Year-1 PV. [Incorrect]
+Why: 1/(1.08)^50 ≈ 0.0213, far below 0.9259.
+
+==================================================
+Week 6 - chapter7-what-hedge-funds-really-do.txt
+==================================================
+
+Q11) A portfolio has 60% in XOM (8% return) and 40% in SPY (10% return). Select correct choices.
+A. Portfolio return = 0.6*8% + 0.4*10% = 8.8%. [Correct]
+Why: Weighted average return with weights summing to 1.
+B. Portfolio return must equal the higher asset return (10%). [Incorrect]
+Why: Convex combination lies between 8% and 10% here.
+C. Weighted-average return lies between constituent returns when weights are positive and sum to 1. [Correct]
+Why: r_p = w1 r1 + w2 r2, with w1,w2 in [0,1], w1+w2=1.
+D. Using these values, contribution from XOM is 4.8 percentage points. [Correct]
+Why: 0.6*8% = 4.8%.
+E. Using these values, contribution from SPY is 0.4 percentage points. [Incorrect]
+Why: 0.4*10% = 4.0%, not 0.4%.
+
+Q12) Under CAPM framing in this chapter, which are correct?
+A. Return(stock) = beta * Return(market) + alpha. [Correct]
+Why: This is the chapter’s linear CAPM decomposition form.
+B. Beta is the slope of the regression line. [Correct]
+Why: In Y = bX + a, b is slope; here b = beta.
+C. Alpha is the intercept of the regression line. [Correct]
+Why: In Y = bX + a, a is intercept; here a = alpha.
+D. Market beta is defined as 0 by convention. [Incorrect]
+Why: Market beta is defined as 1.0, not 0.
+E. In the XOM/SPY two-asset beta-balanced example, chapter gives approximately 56% XOM and -44% SPY. [Correct]
+Why: It solves beta balance sum(beta_i * w_i)=0 with net exposure normalization.
+
+End of quiz.

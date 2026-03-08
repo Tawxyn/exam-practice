@@ -1,0 +1,306 @@
+CHAPTER 7
+
+Framework for Investing:
+The Capital Asset Pricing
+Model (CAPM)
+Although finance and investing have existed as long as there have been
+markets to connect suppliers of capital (savers) with those who need capital (businesses), the beginnings of a rigorous framework for appraising
+and designing portfolios did not really come into being until the midtwentieth century. The Capital Assets Pricing Model (CAPM) is one of
+the most influential models developed to address this. Merton Miller,
+Franco Modigliani, and William Sharpe shared a Nobel Prize in Economics in 1990 for their development of the CAPM.
+To jump ahead for a moment, one of the core implications of CAPM
+when combined with the Efficient Markets Hypothesis (EMH), which
+will be described in the next chapter, is that very few investors can produce sustained returns superior to market averages. Therefore, CAPM
+and EMH adherents asserted, buying “the market,” such as a stock market index, would produce superior results to most other strategies. Burton
+Malkiel’s A Random Walk Down Wall Street was the first popular book on
+indexing; first published in 1973, it has now appeared in over a dozen new
+editions. John Bogle founded Vanguard Funds in the early 1970s to make
+index investing available to retail customers.
+Hedge funds are premised on the belief that it is in fact possible to
+outperform a long-only market indexing strategy. So why spend a chapter
+on a framework that seems to contradict this? Because CAPM has been
+hugely influential in the investment community. And because it presents
+a framework that allows us to break down investing performance into
+component parts.
+
+An Overview of CAPM
+FIgure 7.1 shows daily price movements of a stock, ExxonMobil (ticker
+symbol XOM) and an index, the S&P 500 (ticker symbol SPX), for about
+1 year from late 2011 to late 2012.
+You can see that prices of these two assets mostly move in tandem. But
+there are periods where one moves by more, or less, than the other. This
+suggests two things:
+• There appears to be a strong relationship (positive correlation)
+between XOM and SPX—that is, most events seem to affect
+both assets in the same general way.
+• Changes in XOM do not appear (for the most part) to be
+quite as pronounced as changes in SPX.
+Clearly, relative price movements for a given stock—in this case XOM—
+compared to the overall market—captured in the S&P 500 index, SPX—
+deserve attention. But there may also be a systematic difference in a
+stock’s returns, aside from the portion of its returns that seem to relate
+to broader market movements. That is the core of CAPM: distinguishing
+XOM and S&P 500 cumulative returns
+1.050
+1.000
+
+Relative price
+
+0.950
+0.900
+0.850
+
+XOM
+S&P 500
+
+0.800
+0.750
+0.700
+0.650
+
+8/
+
+1/
+9/ 11
+10 /11
+/1
+11 /11
+/1
+12 /11
+/1
+/
+1/ 11
+1/
+2/ 12
+1/
+3/ 12
+1/
+4/ 12
+1/
+5/ 12
+1/
+6/ 12
+1/
+7/ 12
+1/
+8/ 12
+1/
+
+0.600
+
+Date
+
+Figure 7.1 Daily price movements for XOM and SPX
+
+between stock returns that derive from broad market movements and
+those that do not.
+
+The ABCs of CAPM: Alphas, Betas, and Correlations
+Figure 7.2 shows the price changes (i.e., the daily returns in percent) in
+XOM and SPX. In many instances, the two series are indistinguishable,
+a sign that whatever affects the overall market (SPX) is also affecting ExxonMobil (XOM). Recall that returns are simply
+[(Price at time t/Price at time t – 1) – 1].
+The most basic measure of the relationship between movements in XOM’s
+price and SPX is correlation. In a simple form, a correlation coefficient
+measures the frequency with which prices of two assets move in the same
+direction. Correlation coefficients can be as follows:
+• –1.0—a perfect negative relationship. Whenever the S&P
+rises, XOM falls, and vice versa.
+• 0—no visible relationship.
+• +1.0—a perfect positive relationship. Whenever the S&P
+rises, XOM rises, and vice versa.
+0.03
+0.02
+
+$SPX
+XOM
+
+Daily returns (%)
+
+0.01
+0.00
+–0.01
+–0.02
+–0.03
+–0.04
+–0.05
+
+Jan 14 2007 Jan 28 2007 Feb 11 2007 Feb 25 2007 Mar 11 2007
+Date
+
+Figure 7.2 Daily percentage change in price for SPX and XOM
+
+Correlations among financial instruments will be essential elements of
+portfolio construction, discussed in a later chapter. In general, combining
+assets with low or negative correlations to each other—that is, correlation
+coefficients that are near zero, or even negative—dampens a portfolio’s
+volatility (i.e., lowers risk).
+The essence of CAPM is illustrated in Figure 7.3. This is a scatter plot
+of XOM’s daily returns versus those of SPX. Each dot represents one day of
+data—the horizontal location indicates the change in SPX, while the vertical
+location is the change in XOM. This pattern of a generally upward-­sloping
+oval-shaped scatter is very common: On days when the overall market is
+driven upward (i.e., when there are more buyers than sellers), the same is
+true of XOM. This implies the correlation coefficient is positive (between 0
+and 1). If XOM benefitted from events that hurt the overall market (or vice
+versa), the general shape of the scatter would be downward, and the SPX and
+XOM correlation coefficient would be negative (between –1 and 0).
+As shown in Figure 7.3, we can fit a regression line through this scatter to find the linear equation that best captures its pattern. All linear
+equations have the general form Y = b × X + a; in this example:
+Return (XOM) = beta × Return (SPX) + alpha
+0.20
+0.15
+0.10
+
+XOM
+
+0.05
+0.00
+–0.05
+–0.10
+–0.15
+–0.20
+–0.15
+
+–0.10
+
+–0.05
+
+0.00
+SPX
+
+0.05
+
+0.10
+
+0.15
+
+Figure 7.3 Scatter graph of XOM return versus market return, with
+regression line
+
+where alpha is the Y-intercept of the regression line, and beta is its slope.
+We can interpret these ABCs—alphas, betas, and correlations—as
+follows:
+• Alpha is the systematic difference in performance (return)
+of a stock over and above the market. Positive alpha could
+come from superior management, production technology, or
+product design; or from having a dominant position in the
+company’s market that provides it pricing power (the ability
+to raise prices without losing many customers). Alpha is the
+intercept of the regression line in Figure 4.3. Since collectively
+all stocks cannot beat the market because together they are the
+market, alpha is assumed to be zero on average. (Any stock
+with positive alphas is counterbalanced by other stocks with
+negative alphas.)
+• Beta represents the stock’s price volatility relative to the
+overall market. Simply put, a stock with a beta of, say, 1.5
+will rise on average 1.5 times as much, and fall 1.5 times
+as much, as the overall market, in percentage terms. Small,
+speculative companies usually have betas well above 1.0,
+while large companies with very stable earnings usually have
+betas well under 1.0. XOM’s beta is 0.77; it isn’t surprising
+that a large company whose fortunes are so intertwined with
+other companies (through oil supplier relationships) would
+see its stock move almost as much as the overall market. The
+market’s beta is by definition 1.0. Beta is the slope of the
+regression line as shown in Figure 7.3. You can find a stock’s
+beta on many investing websites, such as Google Finance or
+Yahoo Finance.
+• Correlation coefficients capture the “tightness” of the scatter
+around the regression line, which summarizes the pattern in
+that scatter. The higher (closer to 1.0) the correlation between
+XOM and SPX, the more that XOM’s price movements are
+explained by movements in SPX. Said differently, a high correlation coefficient suggests that events that affect prices in the
+overall market have similar effects on the price of XOM.
+
+Implications of CAPM
+A fund manager can derive return from beta and alpha: When returns are
+based primarily on an upward general market we call this buying beta. On
+the other hand, returns resulting from investment skill are known as seeking alpha. As noted earlier, extensive study of the mutual fund industry
+finds little evidence of persistent alpha among fund managers.
+So CAPM allows the most basic disaggregation of an investment’s
+performance into two parts: based on market return (which could be
+achieved simply by buying an index)—beta; and based on company-­
+specific factors—alpha. Since there are extremely inexpensive ways to
+guarantee a beta of 1.0 by buying index funds or ETFs, outperforming
+the market entails investing in stocks more volatile than the index (buying
+beta), or finding stocks that systematically outperform (buying alpha).
+Buying beta means, by definition, buying increased risk, since high beta
+stocks not only rise faster than the index on “up” days, but also fall farther
+on “down” days. Buying alpha is the oft-sought, but rarely achieved goal.
+
+Basic Hedge Fund Strategies in the CAPM Framework
+Hedge funds are so called because the first hedge fund, Albert Winslow
+Jones’ fund formed in 1949, strove for absolute positive returns through
+hedging—making contrary bets that would pay off if their main bet
+failed. These hedges would at a minimum reduce losses, and in the best
+case could produce absolute positive returns (i.e., returns above zero even
+if the general market direction was downward). In exchange, these hedges
+posed a drag on returns when the market headed upward.
+In CAPM terms, a hedge works as follows. (We will retain the XOM
+and SPX example from the previous figures.)
+A portfolio’s return is the weighted average of the returns of its constituent assets. (Portfolio construction will be treated at length in later
+chapters.) So if an investor holds a portfolio that constitutes a long position in XOM for 60 percent of its holdings and in SPY (SPY is a publicly
+traded ETF that tracks SPX) for 40 percent, the portfolio’s return would
+be calculated as follows:
+XOM weight: 60 percent; XOM return: 8 percent
+
+SPY weight: 40 percent; SPY return: 10 percent
+Portfolio return: 60% × 8% + 40% × 10% = 4.8% + 4% = 8.8%.
+(XOM)
+(SPY) 
+(Portfolio)
+As you would expect, the portfolio’s return falls between that of its two
+constituents, shaded toward XOM, which has a larger share of the overall
+portfolio.
+In CAPM terms, a portfolio’s return is likewise an amalgam of the
+returns on each stock within it:
+return (portfolio) = weight (XOM) × return (XOM) + weight (SPY) ×
+return (SPY), where each stock’s return is as follows:
+return (XOM) = beta (XOM) × return (market) + alpha (XOM)
+and
+return (SPY) = beta (SPY) × return (market) + alpha (SPY)
+Note: We assume beta for SPY is 1.0 and that SPY’s alpha is 0 because its
+performance is equivalent to the market’s.
+Let’s move on now to a hedge example: Assume that the investor has
+some reason to believe that Exxon will experience positive developments
+and will rise faster than the overall market. A long-only investor would
+simply buy XOM. If it performs as expected, the investor will do well;
+however, if the market drops substantially, XOM will drop with it and he
+will lose money.
+To hedge against this possibility—that XOM may decline because
+the overall market declines—when a hedge fund buys a long position in
+XOM, it can short the SPX. Accordingly, suppose the manager takes a 50
+percent positive position in XOM, and a negative 50 percent position in
+SPY: The portfolio return is the weighted average of the two positions:
+0.5 × [beta (XOM) × return (market) + alpha (XOM)] +
+–0.5 × [beta (SPY) × return (market) + alpha (SPY)]
+The portfolio weight for SPY has a negative sign because the fund is shorting the SPX. Again note that the alpha for SPY—the market—is by definition 0.
+If the investor’s forecast is incorrect and XOM falls (not rises as he
+expected), the tumble may be because of a general fall in the market, in
+
+which case his short would make money that would at least partly compensate for his loss in the long XOM position. At the same time, if his
+forecast is correct and both XOM and the overall market rise, his XOM
+gains will be at least partly offset (dragged down) by his losses on the short
+SPX position.
+Note that this portfolio (50 percent XOM, –50 percent SPY) is dollar balanced, meaning that there is an equivalent investment on the long
+side as on the short side. But the portfolio is not beta balanced. The two
+positions do not quite cancel each other out—the portfolio will still be
+skewed long or short by the respective alphas and betas of its two positions. In this instance, it’s because XOM’s beta (0.77) is lower than SPY’s
+(1.0). If the market goes up the portfolio will only be net long if XOM’s
+alpha is sufficiently greater than the market’s to counteract the 0.23 difference in betas (1.0 – 0.77). However, if the betas of the two issues were
+very close, the positive return would be 0.5 × the long position’s alpha (in
+this case, XOM’s).
+Most hedge funds seek beta-balanced portfolios so that they are precisely protected against market-wide moves. That means, essentially
+Sum(beta_i * w_i) = 0, and
+Sum(|w_i|) = 1.0
+where beta_i is the beta for stock I, and w_i is its weight in the portfolio.
+In this case, because XOM’s beta is 0.77, we must hold a larger portion
+of XOM to offset its lower beta. A beta-balanced portfolio of these two
+issues would contain 56 percent XOM, and –44 percent in SPY. (We
+leave the algebra as an exercise.)
+Such excess returns are quite small, which is why hedge funds need to
+trade in very large volumes, and often use leverage (borrowing) to expand
+the magnitude of their trades. Many financial institutions like hedge
+funds leverage 20 or 30 times their invested capital. Leverage magnifies
+both gains and losses. This is why high degrees of leverage are often combined with hedged (long/short) strategies.
